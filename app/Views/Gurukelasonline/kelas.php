@@ -37,3 +37,27 @@
         </div>
     </div>
 </div>
+
+<!-- Function to Hapus Data -->
+<?php foreach ($materi as $key => $value) { ?>
+    <div class="modal fade " id="modalHapus<?= $value['id_kelasonline'] ?>">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hapus Data Materi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Yakin Hapus Data Materi?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="<? base_url('gurukelasonline/hapus/' . $materi['id_kelasonline']) ?>" class="btn btn-primary">Hapus</a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php } ?>

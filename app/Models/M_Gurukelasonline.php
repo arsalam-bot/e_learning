@@ -54,9 +54,7 @@ class M_Gurukelasonline extends Model
 
     public function hapus($data)
     {
-        return $this->db->table('materi')
-            ->join('kelasonline', 'kelasonline.id_kelasonline = materi.id_kelasonline', 'left')
-            ->where('id_materi', $data['id_materi'])->delete($data);
+        return $this->db->table('materi')->where('id_materi', $data['id_materi'])->delete($data);
     }
 }
 
