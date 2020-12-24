@@ -22,6 +22,12 @@
                     <img src="<?= base_url('materi tugas/pdf.png'); ?>" id="gambar_load" width="40px">
                     <span><embed><?= $value['file_materi']; ?></embed></span>
                 </a>
+                <a href="<?= base_url('gurukelasonline/edit/' . $value['id_kelasonline']) ?>" class="btn btn-circle btn-sm btn-warning" type="button">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <button class="btn btn-circle btn-sm btn-danger" type="button" data-toggle="modal" data-target="">
+                    <i class="fa fa-trash-alt"></i>
+                </button>
                 <hr />
             <?php } ?>
 
@@ -30,3 +36,4 @@
             </div>
         </div>
     </div>
+</div>

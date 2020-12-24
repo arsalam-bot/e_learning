@@ -35,7 +35,7 @@
                     <?php
                     echo form_open_multipart('siswa/editsiswa/' . $siswa['id_siswa']) ?>
                     <div class="form-group mb-8">
-                        <label>NIP</label>
+                        <label>NISN</label>
                         <input type="text" name="nisn" id="nisn" value="<?= (old('nisn')) ? old('nisn') : $siswa['nisn'] ?>" class="form-control" placeh$guruer="Masukan NISN">
                     </div>
                     <div class="form-group">

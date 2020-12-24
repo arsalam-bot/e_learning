@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Tambah <?= $judul; ?></h1>
+    <h1 class="h3 mb-4 text-gray-800">Edit <?= $judul; ?></h1>
 
     <!-- Basic Card Example -->
     <div class="row">
@@ -10,7 +10,7 @@
         <div class="col-sm-10">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Tambah <?= $judul; ?></h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Edit <?= $judul; ?></h6>
                 </div>
                 <div class="card-body">
                     <?php
@@ -22,7 +22,7 @@
                             </button>
                             <strong><?= session()->get('validationguruerror'); ?></strong>
                         </div>
-                        <?= session()->remove('validationguruerror'); ?>
+                        <? session()->remove('validationguruerror'); ?>
                     <?php
                     endif;
                     ?>
@@ -40,21 +40,10 @@
                     endif;
                     ?>
 
-                    <?php echo form_open_multipart('gurukelasonline/tambahmaterikelas') ?>
-                    <div class="form-group">
-                        <label>Kelas Online</label>
-                        <select name="id_kelasonline" class="form-control">
-                            <option value="">--Pilih Kelas Online--</option>
-                            <?php foreach ($gurukelasonline as $key => $value) { ?>
-                                <option value="<?= $value['id_kelasonline'] ?>">
-                                    <?= $value['nama_mapel'] ?> - <?= $value['kelas'] ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                    </div>
+                    <?php echo form_open_multipart('gurukelasonline/editmaterikelas/' . $materi['id_materi']) ?>
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea type="text" name="deskripsi" id="deskripsi" class="form-control" placeholder="Masukan Deskripsi"><?php echo old('deskripsi') ?></textarea>
+                        <textarea type="text" name="deskripsi" id="deskripsi" class="form-control" placeholder="Masukan Deskripsi"><?php echo (old('deskripsi')) ? old('deskripsi') : $materi['deskripsi'] ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Foto Dosen</label>
@@ -62,7 +51,7 @@
                     </div>
                     <div class="modal-footer">
 
-                        <button type="submit" class="btn btn-primary">Tambah</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                     <?php echo form_close() ?>
                 </div>

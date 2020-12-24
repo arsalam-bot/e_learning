@@ -36,27 +36,32 @@ class M_Gurukelasonline extends Model
         return $query->getResultArray();
     }
 
-
-
     public function tambahmateri($data)
     {
         return $this->db->table('materi')->insert($data);
-        
     }
 
-    // public function tambahmateri($id_kelasonline, $deskripsi, $file)
-    // {
-    //     $query = $this->db->query("INSERT INTO `materi`(`id_kelasonline`, `deskripsi`, `file`) VALUES ('$id_kelasonline','$deskripsi','$file');");
-    //     return $query->result_array();
-    // }
+    public function detailData($id)
+    {
+        return $this->db->table('materi')->where('id_materi', $id)->get()->getRowArray();
+    }
 
     public function edit($data)
     {
-        return $this->db->table('kelasonline')->where('id_kelasonline', $data['id_kelasonline'])->update($data);
+        return $this->db->table('materi')->where('id_materi', $data['id_materi'])->update($data);
     }
+
 
     public function hapus($data)
     {
-        return $this->db->table('kelasonline')->where('id_kelasonline', $data['id_kelasonline'])->delete($data);
+        return $this->db->table('materi')
+            ->join('kelasonline', 'kelasonline.id_kelasonline = materi.id_kelasonline', 'left')
+            ->where('id_materi', $data['id_materi'])->delete($data);
     }
 }
+
+// public function tambahmateri($id_kelasonline, $deskripsi, $file)
+// {
+//     $query = $this->db->query("INSERT INTO `materi`(`id_kelasonline`, `deskripsi`, `file`) VALUES ('$id_kelasonline','$deskripsi','$file');");
+//     return $query->result_array();
+// }
