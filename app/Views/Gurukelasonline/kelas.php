@@ -3,7 +3,7 @@
     <!-- Basic Card Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">
+            <h6 class="m-0 font-weight-bold text-success">
                 <?= $judul; ?>
             </h6>
         </div>
@@ -16,9 +16,12 @@
 
             <?php $pertemuan = 1;
             foreach ($materi as $key => $value) { ?>
-                <h5>Pertemuan <?= $pertemuan++; ?></h5>
-                <h6 class="mt-3"><b><?= $value['deskripsi']; ?></b></h6>
-                <p><?= $value['file_materi']; ?></p>
+                <h5 class="m-0 font-weight-bold text-info">Pertemuan <?= $pertemuan++; ?></h5>
+                <h6 class="mt-3"><?= $value['deskripsi']; ?></h6>
+                <a onclick href="">
+                    <img src="<?= base_url('materi tugas/pdf.png'); ?>" id="gambar_load" width="40px">
+                    <span><embed><?= $value['file_materi']; ?></embed></span>
+                </a>
                 <hr />
             <?php } ?>
 

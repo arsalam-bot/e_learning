@@ -57,7 +57,6 @@ class Gurukelasonline extends BaseController
             'judul' => 'Materi Kelas Online',
             'gurukelasonline' => $this->M_Gurukelasonline->loadData(),
         ];
-        // $data['id_kelas'] = $id_kelasonline;
 
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
@@ -68,20 +67,15 @@ class Gurukelasonline extends BaseController
 
     public function tambahmaterikelas()
     {
-        // $id_kelasonline = session()->get('id_kelasonline');
-        // $tambah_materi = new M_Gurukelasonline();
-        // $deskripsi = $this->request->getPost('deskripsi');
-        // $file =  $this->request->getPost('file');
-        // $file = $this->request->getFile('file');
-        // $nama_file = $file->getClientName();
+        $file = $this->request->getFile('file');
+        $nama_file = $file->getClientName();
         $data = [
             'id_kelasonline' =>  $this->request->getPost('id_kelasonline'),
             'deskripsi' => $this->request->getPost('deskripsi'),
-            // 'file' => $nama_file,
+            'file' => $nama_file,
         ];
         $this->M_Gurukelasonline->tambahmateri($data);
-        // $file->move('materi tugas', $nama_file);
-        // $tambah_isi_materi = $tambah_materi->tambahmateri($id_kelasonline, $deskripsi, $file);
+        $file->move('materi tugas', $nama_file);
 
         session()->setFlashdata('message', 'Di Tambahkan');
         return redirect()->to(base_url('gurukelasonline/tambahmateri'));
@@ -97,3 +91,24 @@ class Gurukelasonline extends BaseController
         return redirect()->to(base_url('kelasonline'));
     }
 }
+
+// public function tambahmaterikelas()
+// {
+//     $id_kelasonline = session()->get('id_kelasonline');
+//     $tambah_materi = new M_Gurukelasonline();
+//     $deskripsi = $this->request->getPost('deskripsi');
+//     $file =  $this->request->getPost('file');
+//     $file = $this->request->getFile('file');
+//     $nama_file = $file->getClientName();
+//     $data = [
+//         'id_kelasonline' =>  $this->request->getPost('id_kelasonline'),
+//         'deskripsi' => $this->request->getPost('deskripsi'),
+//         'file' => $nama_file,
+//     ];
+//     $this->M_Gurukelasonline->tambahmateri($data);
+//     $file->move('materi tugas', $nama_file);
+//     $tambah_isi_materi = $tambah_materi->tambahmateri($id_kelasonline, $deskripsi, $file);
+
+//     session()->setFlashdata('message', 'Di Tambahkan');
+//     return redirect()->to(base_url('gurukelasonline/tambahmateri'));
+// }
