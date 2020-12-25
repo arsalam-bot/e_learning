@@ -77,15 +77,22 @@ class Gurukelasonline extends BaseController
 
         ])) {
             $file = $this->request->getFile('file');
-            $nama_file = $file->getClientName();
-            $data = [
-                'id_kelasonline' =>  $this->request->getPost('id_kelasonline'),
-                'deskripsi' => $this->request->getPost('deskripsi'),
-                'file' => $nama_file,
-            ];
-            $this->M_Gurukelasonline->tambahmateri($data);
-            $file->move('materi tugas', $nama_file);
-
+            if ($file->getError() == 4) {
+                $data = [
+                    'id_kelasonline' =>  $this->request->getPost('id_kelasonline'),
+                    'deskripsi' => $this->request->getPost('deskripsi'),
+                ];
+                $this->M_Gurukelasonline->tambahmateri($data);
+            } else {
+                $nama_file = $file->getClientName();
+                $data = [
+                    'id_kelasonline' =>  $this->request->getPost('id_kelasonline'),
+                    'deskripsi' => $this->request->getPost('deskripsi'),
+                    'file' => $nama_file,
+                ];
+                $this->M_Gurukelasonline->tambahmateri($data);
+                $file->move('materi tugas', $nama_file);
+            }
             session()->setFlashdata('message', 'Di Tambahkan');
             return redirect()->to(base_url('gurukelasonline/tambahmateri'));
         } else {
