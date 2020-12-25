@@ -19,6 +19,7 @@ class Gurukelasonline extends BaseController
         $this->M_Mapel = new M_Mapel();
         $this->M_Kelas = new M_Kelas();
     }
+
     public function index()
     {
         $data = [
@@ -30,6 +31,20 @@ class Gurukelasonline extends BaseController
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
         echo view('gurukelasonline/index');
+        echo view('templates/v_footer');
+    }
+
+    public function dashboard()
+    {
+        $data = [
+            'judul' => 'Kelas Online',
+            'gurukelasonline' => $this->M_Gurukelasonline->loadData(),
+        ];
+
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('gurukelasonline/dashboard');
         echo view('templates/v_footer');
     }
 

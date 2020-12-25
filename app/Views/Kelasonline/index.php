@@ -1,53 +1,68 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <a href="<?= base_url('kelasonline/tambah') ?>" class="btn btn-success mb-4 mt-4">
-        <i class="fa fa-plus"></i><span class="text"> Tambah Data Kelas Online</span>
-    </a>
-    <?php
-    if (session()->get('message')) :
-    ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            Data Kelas Online Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
+    <!-- DataTables Example -->
+    <div class="card shadow mb-4 mt-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-success">Data Kelas Online</h6>
         </div>
-    <?php
-    endif;
-    ?>
-    <div class="row">
-        <?php foreach ($kelasonline as $key => $value) { ?>
-            <div class="col-lg-3 my-2">
-                <div class="card shadow mb-2">
-                    <div class="card-body">
-                        <img class="card-img-center img-fluid px-3 px-sm-4 mb-2" style="width: 25rem;" src="<?= base_url('foto kelas/' . $value['fotokelasonline']) ?>" id="gambar_load">
-                        <h6 class="m-0 font-weight-bold text-dark"><?= $value['nama_mapel'] ?></h6>
-                        <h6 class="m-0 font-weight-bold text-gray">Kelas <?= $value['kelas'] ?></h6>
-                        <h6><?= $value['nip'] ?> - <?= $value['nama_guru'] ?></h6>
-                        <hr />
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <a href="" class="btn btn-info btn-icon-split" type="button">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-info-circle"></i>
-                                    </span>
-                                    <span class="text">Lihat Kelas</span>
-                                </a>
-                            </div>
-                            <div class="col-auto">
-                                <button class="btn btn-circle btn-sm btn-danger" type="button" data-toggle="modal" data-target="#modalHapus<?= $value['id_kelasonline'] ?>">
-                                    <i class="fa fa-trash-alt"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <?php
+        if (session()->get('message')) :
+        ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                Data Kelas Online Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
             </div>
-        <?php } ?>
+        <?php
+        endif;
+        ?>
+        <div class="card-body">
+            <a href="<?= base_url('kelasonline/tambah') ?>" class="btn btn-success mb-4">
+                <i class="fa fa-plus"></i><span class="text"> Tambah Data Kelas Online</span>
+            </a>
+            <div class="table-responsive ">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Kode</th>
+                            <th>Nama Guru</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Foto Kelas</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($kelasonline as $key => $value) { ?>
+                            <tr>
+                                <td><?= $value['id_kelasonline'] ?></td>
+                                <td><?= $value['nip'] ?> - <?= $value['nama_guru'] ?></td>
+                                <td><?= $value['nama_mapel'] ?> - <?= $value['kelas'] ?></td>
+                                <td class="text-center"><img src="<?= base_url('foto kelas/' . $value['fotokelasonline']) ?>" class="img-profile rounded-circle" width="70px" height="70px"></td>
+                                <td>
+                                    <button class="btn btn-circle btn-sm btn-danger" type="button" data-toggle="modal" data-target="#modalHapus<?= $value['id_kelasonline'] ?>">
+                                        <i class="fa fa-trash-alt"></i>
+                                    </button>
+
+                                    <a href="" class="btn btn-info btn-icon-split" type="button">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-info-circle"></i>
+                                        </span>
+                                        <span class="text">Lihat Kelas</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
+
+</div>
+
 <!-- /.container-fluid -->
 
 <!-- End of Main Content -->

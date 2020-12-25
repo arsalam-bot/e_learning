@@ -36,7 +36,7 @@
                             <div class="col-lg">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Silahkan Login Untuk Melanjutkan</h1>
+                                        <h1 class="h4 text-gray-900 mb-4"><b>E-Learning SMP Negeri 3 Bungku</b></h1>
                                     </div>
 
                                     <!-- <?php

@@ -9,15 +9,12 @@
         <?php
         if (session()->get('message')) :
         ?>
-
-
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 Data Guru Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
             </div>
-
         <?php
         endif;
         ?>
@@ -25,10 +22,6 @@
             <a href="<?= base_url('guru/tambah') ?>" class="btn btn-success mb-4">
                 <i class="fa fa-plus"></i><span class="text"> Tambah Data</span>
             </a>
-
-            <!-- <button class="btn btn-success mb-4" data-toggle="modal" data-target="#modalTambah">
-                <i class="fa fa-plus"></i><span class="text"> Tambah Data</span>
-            </button> -->
             <div class="table-responsive ">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -68,15 +61,6 @@
                                     <button class="btn btn-circle btn-sm btn-danger" type="button" data-toggle="modal" data-target="#modalHapus<?= $value['id_guru'] ?>">
                                         <i class="fa fa-trash-alt"></i>
                                     </button>
-
-                                    <!-- <button class="btn btn-circle btn-sm btn-warning" type="button" data-toggle="modal" data-target="#modalEdit<?= $value['id_guru'] ?>">
-                                        <i class="fa fa-edit"></i>
-                                    </button>
-
-                                    <button class="btn btn-circle btn-sm btn-danger" type="button">
-                                        <i class="fa fa-trash-alt"></i>
-                                    </button>-->
-
                                 </td>
                             </tr>
                         <?php } ?>
@@ -85,7 +69,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 
