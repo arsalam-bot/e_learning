@@ -1,60 +1,38 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
-
-    <!-- DataTables Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-success">Data Kelas Online</h6>
+    <?php
+    if (session()->get('message')) :
+    ?>
+        <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Data Kelas Online Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
         </div>
-        <?php
-        if (session()->get('message')) :
-        ?>
+    <?php
+    endif;
+    ?>
 
-
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                Data Kelas Online Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
+    <div class="row mt-4">
+        <?php foreach ($gurukelasonline as $key => $value) { ?>
+            <div class="col-lg-3 my-2">
+                <div class="card shadow mb-2">
+                    <div class="card-body">
+                        <img class="card-img-center img-fluid px-3 px-sm-4 mb-2" style="width: 25rem;" src="<?= base_url('foto kelas/' . $value['fotokelasonline']) ?>" id="gambar_load">
+                        <h6 class="m-0 font-weight-bold text-dark"><?= $value['nama_mapel'] ?></h6>
+                        <h6 class="m-0 font-weight-bold text-gray">Kelas <?= $value['kelas'] ?></h6>
+                        <h6><?= $value['nip'] ?> - <?= $value['nama_guru'] ?></h6>
+                        <hr />
+                        <a href="<?= base_url('gurukelasonline/kelas/' . $value['id_kelasonline']) ?>" class="btn btn-info btn-icon-split" type="button">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-info-circle"></i>
+                            </span>
+                            <span class="text">Lihat Kelas</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-
-        <?php
-        endif;
-        ?>
-        <div class="card-body">
-            <div class="table-responsive ">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Kode Kelas</th>
-                            <th>Nama Guru</th>
-                            <th>Mata Pelajaran</th>
-                            <th>Keterangan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($gurukelasonline as $key => $value) { ?>
-                            <tr>
-                                <td><?= $value['id_kelasonline'] ?></td>
-                                <td><?= $value['nip'] ?> - <?= $value['nama_guru'] ?></td>
-                                <td><?= $value['nama_mapel'] ?> - <?= $value['kelas'] ?></td>
-                                <td>
-                                    <a href="<?= base_url('gurukelasonline/kelas/' . $value['id_kelasonline']) ?>" class="btn btn-info btn-icon-split" type="button">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-info-circle"></i>
-                                        </span>
-                                        <span class="text">Lihat Kelas</span>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 
 </div>

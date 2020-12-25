@@ -59,6 +59,11 @@
                             <?php } ?>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>Foto Kelas Online</label>
+                        <input type="file" name="fotokelasonline" id="preview_gambar" value="<?= old('fotokelasonline') ?>" class="form-control">
+                    </div>
+
                     <div class="modal-footer">
                         <a href="<?= base_url('kelasonline') ?>" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
                         <button type="submit" class="btn btn-primary">Tambah</button>

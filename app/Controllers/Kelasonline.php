@@ -71,12 +71,25 @@ class Kelasonline extends BaseController
                     'required' => '{field} tidak boleh kosong.',
                 ]
             ],
+            'fotokelasonline' => [
+                'label' => 'Foto Kelas Online',
+                'rules' => 'uploaded[fotokelasonline]|max_size[fotokelasonline,4096]|mime_in[fotokelasonline,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => '{field} tidak boleh kosong.',
+                    'max_size' => '{field} max 4Mb.',
+                    'mime_in' => '{field} hanya boleh .PNG, .JPG, .JPEG.',
+                ]
+            ],
         ])) {
+            $foto = $this->request->getFile('fotokelasonline');
+            $nama_file = $foto->getClientName();
             $data = [
                 'id_guru' => $this->request->getPost('id_guru'),
                 'id_mapel' => $this->request->getPost('id_mapel'),
                 'id_kelas' => $this->request->getPost('id_kelas'),
+                'fotokelasonline' => $nama_file,
             ];
+            $foto->move('foto kelas', $nama_file);
             $this->M_Kelasonline->tambah($data);
             session()->setFlashdata('message', 'Di Tambahkan');
             return redirect()->to(base_url('kelasonline'));

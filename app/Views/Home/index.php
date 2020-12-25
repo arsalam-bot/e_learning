@@ -1,8 +1,10 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid bg-white">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
+    <div>
+        <img class="img-fluid px-3 px-sm-4" style="width: 60rem; display: block; margin: auto;" src="<?= base_url('foto kelas/empty 3.png'); ?>" width="500px">
+    </div>
 
 </div>
 <!-- /.container-fluid -->
