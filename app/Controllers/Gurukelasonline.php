@@ -50,14 +50,14 @@ class Gurukelasonline extends BaseController
 
     public function kelas($_id_kelasonline)
     {
-        $n_mapel = new M_Gurukelasonline();
+        // $n_mapel = new M_Gurukelasonline();
         $data = [
             'judul' => 'Kelas Online',
             'materi' => $this->M_Gurukelasonline->loadDataMateri($_id_kelasonline),
         ];
         $data['id_kelasonline'] = $_id_kelasonline;
-        $data['mapel'] = $n_mapel->loadDataMateri($_id_kelasonline);
-        $_id_kelasonline = session()->set('id_kelasonline', $_id_kelasonline);
+        // $data['mapel'] = $n_mapel->loadDataMateri($_id_kelasonline);
+        // $_id_kelasonline = session()->set('id_kelasonline', $_id_kelasonline);
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
@@ -89,12 +89,20 @@ class Gurukelasonline extends BaseController
                     'required' => '{field} tidak boleh kosong.',
                 ]
             ],
+            'judul' => [
+                'label' => 'Judul',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.',
+                ]
+            ],
 
         ])) {
             $file = $this->request->getFile('file');
             if ($file->getError() == 4) {
                 $data = [
                     'id_kelasonline' =>  $this->request->getPost('id_kelasonline'),
+                    'judul' => $this->request->getPost('judul'),
                     'deskripsi' => $this->request->getPost('deskripsi'),
                 ];
                 $this->M_Gurukelasonline->tambahmateri($data);
@@ -102,6 +110,7 @@ class Gurukelasonline extends BaseController
                 $nama_file = $file->getClientName();
                 $data = [
                     'id_kelasonline' =>  $this->request->getPost('id_kelasonline'),
+                    'judul' => $this->request->getPost('judul'),
                     'deskripsi' => $this->request->getPost('deskripsi'),
                     'file' => $nama_file,
                 ];
@@ -136,6 +145,7 @@ class Gurukelasonline extends BaseController
         if ($file->getError() == 4) {
             $data = [
                 'id_materi' => $id,
+                'judul' => $this->request->getPost('judul'),
                 'deskripsi' => $this->request->getPost('deskripsi'),
             ];
             $this->M_Gurukelasonline->edit($data);
@@ -147,6 +157,7 @@ class Gurukelasonline extends BaseController
             $nama_file = $file->getClientName();
             $data = [
                 'id_materi' => $id,
+                'judul' => $this->request->getPost('judul'),
                 'deskripsi' => $this->request->getPost('deskripsi'),
                 'file' => $nama_file,
             ];
@@ -165,6 +176,17 @@ class Gurukelasonline extends BaseController
         $this->M_Kelasonline->hapus($data);
         session()->setFlashdata('message', 'Di Hapus');
         return redirect()->to(base_url('kelasonline'));
+    }
+
+    public function viewpdf($id)
+    {
+        $data = [
+            'judul' => 'Preview PDF',
+            'materi' => $this->M_Gurukelasonline->detailPDF($id),
+        ];
+
+        echo view('templates/v_header', $data);
+        echo view('Gurukelasonline/viewpdf');
     }
 }
 

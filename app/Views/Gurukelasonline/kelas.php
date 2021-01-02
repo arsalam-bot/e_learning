@@ -8,15 +8,18 @@
             </h6>
         </div>
         <div class="card-body">
-
             <a href="/gurukelasonline/tambahmateri/<?php echo $id_kelasonline ?>" class="btn btn-success">
                 <i class="fa fa-plus"></i><span class="text"> Tambah Materi</span>
             </a>
             <hr />
+            <a href="/gurukelasonline/tambahmateri/<?php echo $id_kelasonline ?>" class="m-0 font-weight-bold text-info">
+            <h5>Presensi</h5>
+            </a>
+            <hr />
 
-            <?php $pertemuan = 1;
+            <?php
             foreach ($materi as $key => $value) { ?>
-                <h5 class="m-0 font-weight-bold text-info">Pertemuan <?= $pertemuan++; ?></h5>
+                <h5 class="m-0 font-weight-bold text-info"><?= $value['judul']; ?></h5>
                 <h6 class="mt-3"><?= $value['deskripsi']; ?></h6>
                 <?php if ($value['file_materi'] == "") { ?>
                     <a href="<?= base_url('gurukelasonline/edit/' . $value['id_kelasonline']) ?>" class="btn btn-circle btn-sm btn-warning mt-3" type="button">
@@ -26,10 +29,10 @@
                         <i class="fa fa-trash-alt"></i>
                     </button>
                 <?php } else { ?>
-                    <a onclick href="">
+                    <a href="<?= base_url('gurukelasonline/viewpdf/' . $value['id_kelasonline']); ?>">
                         <img src="<?= base_url('materi tugas/pdf.png'); ?>" id="gambar_load" width="40px">
                         <span><embed><?= $value['file_materi']; ?></embed></span>
-                    </a><br/>
+                    </a><br />
                     <a href="<?= base_url('gurukelasonline/edit/' . $value['id_kelasonline']) ?>" class="btn btn-circle btn-sm btn-warning mt-3" type="button">
                         <i class="fa fa-edit"></i>
                     </a>

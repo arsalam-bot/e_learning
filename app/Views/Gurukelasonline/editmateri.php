@@ -46,7 +46,7 @@
                         <textarea type="text" name="deskripsi" id="deskripsi" class="form-control" placeholder="Masukan Deskripsi"><?php echo (old('deskripsi')) ? old('deskripsi') : $materi['deskripsi'] ?></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Foto Dosen</label>
+                        <label>File Materi</label>
                         <input type="file" name="file" id="preview_gambar" value="<?= old('file') ?>" class="form-control">
                     </div>
                     <div class="modal-footer">

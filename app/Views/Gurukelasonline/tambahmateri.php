@@ -1,11 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Tambah <?= $judul; ?></h1>
-
     <!-- Basic Card Example -->
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
             <div class="card shadow mb-4">
@@ -26,7 +22,6 @@
                     <?php
                     endif;
                     ?>
-
                     <?php
                     if (session()->get('message')) :
                     ?>
@@ -53,20 +48,24 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label>Judul</label>
+                        <input type="text" name="judul" id="judul" value="<?= old('judul') ?>" class="form-control" placeholder="Masukan Judul">
+                    </div>
+                    <div class="form-group">
                         <label>Deskripsi</label>
                         <textarea type="text" name="deskripsi" id="deskripsi" class="form-control" placeholder="Masukan Deskripsi"><?php echo old('deskripsi') ?></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Foto Dosen</label>
+                        <label>File Materi</label>
                         <input type="file" name="file" id="preview_gambar" value="<?= old('file') ?>" class="form-control">
                     </div>
-                    <div class="modal-footer">
-
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
-                    <?php echo form_close() ?>
                 </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                </div>
+                <?php echo form_close() ?>
             </div>
         </div>
     </div>
+</div>
 </div>

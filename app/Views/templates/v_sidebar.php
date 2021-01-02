@@ -112,7 +112,7 @@
     <?php else : ?>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('dashboard'); ?>">
+            <a class="nav-link" href="<?= base_url('siswakelasonline/dashboard'); ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -127,7 +127,7 @@
 
         <!-- Nav Item - Data Kelas Online -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
+            <a class="nav-link collapsed" href="<?= base_url('siswakelasonline'); ?>">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Kelas Online</span>
             </a>

@@ -24,6 +24,7 @@ class M_Gurukelasonline extends Model
     {
         $query = $this->db->query('SELECT k.id_kelasonline AS id_kelasonline,
         m.id_materi AS id_kelasonline,
+        m.judul AS judul,
         m.deskripsi AS deskripsi,
         m.file AS file_materi,
         p.nama_mapel AS nama_mapel
@@ -42,6 +43,10 @@ class M_Gurukelasonline extends Model
     }
 
     public function detailData($id)
+    {
+        return $this->db->table('materi')->where('id_materi', $id)->get()->getRowArray();
+    }
+    public function detailPDF($id)
     {
         return $this->db->table('materi')->where('id_materi', $id)->get()->getRowArray();
     }
