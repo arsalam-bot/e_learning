@@ -7,6 +7,7 @@ use App\Models\M_Kelasonline;
 use App\Models\M_Guru;
 use App\Models\M_Mapel;
 use App\Models\M_Kelas;
+use CodeIgniter\I18n\Time;
 
 class Gurukelasonline extends BaseController
 {
@@ -41,6 +42,9 @@ class Gurukelasonline extends BaseController
             'gurukelasonline' => $this->M_Gurukelasonline->loadData(),
         ];
 
+        $time = Time::parse('America/Chicago');
+        echo $time->toDateTimeString();
+
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
@@ -50,14 +54,12 @@ class Gurukelasonline extends BaseController
 
     public function kelas($_id_kelasonline)
     {
-        // $n_mapel = new M_Gurukelasonline();
         $data = [
             'judul' => 'Kelas Online',
             'materi' => $this->M_Gurukelasonline->loadDataMateri($_id_kelasonline),
+            'kelas' => $this->M_Gurukelasonline->loadDataKelas($_id_kelasonline),
         ];
         $data['id_kelasonline'] = $_id_kelasonline;
-        // $data['mapel'] = $n_mapel->loadDataMateri($_id_kelasonline);
-        // $_id_kelasonline = session()->set('id_kelasonline', $_id_kelasonline);
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
@@ -75,7 +77,7 @@ class Gurukelasonline extends BaseController
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
-        echo view('gurukelasonline/tambahmateri');
+        echo view('gurukelasonline/tambahmateri', $data);
         echo view('templates/v_footer');
     }
 
@@ -165,7 +167,7 @@ class Gurukelasonline extends BaseController
             $this->M_Gurukelasonline->edit($data);
         }
         session()->setFlashdata('message', 'Di Ubah');
-        return redirect()->to(base_url('gurukelasonline'));
+        return redirect()->to(base_url('gurukelasonline/edit/' . $id));
     }
 
     public function hapus($id)
@@ -188,25 +190,28 @@ class Gurukelasonline extends BaseController
         echo view('templates/v_header', $data);
         echo view('Gurukelasonline/viewpdf');
     }
+    public function viewjpdf($id)
+    {
+        $data = [
+            'judul' => 'Preview PDF',
+            'jawaban' => $this->M_Gurukelasonline->detailjawabanPDF($id),
+        ];
+
+        echo view('templates/v_header', $data);
+        echo view('Gurukelasonline/viewjpdf', $data);
+    }
+
+    public function jtugas($id_materinya)
+    {
+        session()->set('id_materi', $id_materinya);
+        $data = [
+            'judul' => 'Jawaban Tugas Kelas Online',
+            'jawabantugas' => $this->M_Gurukelasonline->loadDataJawabanTugas($id_materinya),
+        ];
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('gurukelasonline/jtugas', $data);
+        echo view('templates/v_footer');
+    }
 }
-
-// public function tambahmaterikelas()
-// {
-//     $id_kelasonline = session()->get('id_kelasonline');
-//     $tambah_materi = new M_Gurukelasonline();
-//     $deskripsi = $this->request->getPost('deskripsi');
-//     $file =  $this->request->getPost('file');
-//     $file = $this->request->getFile('file');
-//     $nama_file = $file->getClientName();
-//     $data = [
-//         'id_kelasonline' =>  $this->request->getPost('id_kelasonline'),
-//         'deskripsi' => $this->request->getPost('deskripsi'),
-//         'file' => $nama_file,
-//     ];
-//     $this->M_Gurukelasonline->tambahmateri($data);
-//     $file->move('materi tugas', $nama_file);
-//     $tambah_isi_materi = $tambah_materi->tambahmateri($id_kelasonline, $deskripsi, $file);
-
-//     session()->setFlashdata('message', 'Di Tambahkan');
-//     return redirect()->to(base_url('gurukelasonline/tambahmateri'));
-// }

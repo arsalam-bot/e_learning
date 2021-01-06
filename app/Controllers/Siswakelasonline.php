@@ -13,7 +13,7 @@ class Siswakelasonline extends BaseController
 {
     public function __construct()
     {
-        helper(['url','download','form']);
+        helper(['url', 'download', 'form']);
         $this->M_Siswakelasonline = new M_Siswakelasonline();
         $this->M_Kelasonline = new M_Kelasonline();
         $this->M_Guru = new M_Guru();
@@ -43,11 +43,13 @@ class Siswakelasonline extends BaseController
         $mykelas = new M_Siswakelasonline();
         $data = [
             'judul' => 'Kelas Online',
-            
+
         ];
         $username = session()->get('username');
         $data['mykelas'] = $mykelas->loadData($username);
-
+        $find = new M_Siswakelasonline();
+        $userid = $find->find_id_s($username);
+        session()->set('id_siswa', $userid['id_siswa']);
 
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
@@ -58,14 +60,13 @@ class Siswakelasonline extends BaseController
 
     public function kelas($_id_kelasonline)
     {
-        // $n_mapel = new M_Siswakelasonline();
         $data = [
             'judul' => 'Kelas Online',
             'materi' => $this->M_Siswakelasonline->loadDataMateri($_id_kelasonline),
+            'kelas' => $this->M_Siswakelasonline->loadDataKelas($_id_kelasonline),
         ];
         $data['id_kelasonline'] = $_id_kelasonline;
-        // $data['mapel'] = $n_mapel->loadDataMateri($_id_kelasonline);
-        // $_id_kelasonline = session()->set('id_kelasonline', $_id_kelasonline);
+        session()->set('id_kelasonline', $_id_kelasonline);
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
@@ -83,5 +84,88 @@ class Siswakelasonline extends BaseController
         echo view('templates/v_header', $data);
         echo view('siswakelasonline/viewpdf');
     }
+    public function jtugas($id_materi)
+    {
+        $data = [
+            'judul' => 'Jawaban Tugas Kelas Online',
+        ];
+        session()->set('id_materi', $id_materi);
 
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('Siswakelasonline/jtugas');
+        echo view('templates/v_footer');
+    }
+
+    public function tambahjawabantugas()
+    {
+        if ($this->validate([
+            'file' => [
+                'label' => 'File Jawaban',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.',
+                ]
+            ]
+        ])) {
+            $tugas = new M_Siswakelasonline();
+            $data = [
+                'judul' => 'Jawaban Tugas Kelas Online',
+            ];
+            $file_tugas = $this->request->getFile('file');
+            $file_n = $file_tugas->getClientName();
+            $id_materi = session()->get('id_materi');
+            $id_kelasonline = session()->get('id_kelasonline');
+            $id_siswa = session()->get('id_siswa');
+            $tugas->kumpul_tugas($file_n, $id_kelasonline, $id_materi, $id_siswa);
+            $file_tugas->move('jawaban tugas', $file_n);
+            session()->setFlashdata('message', 'Di Tambahkan');
+            return redirect()->to(base_url('siswakelasonline/kelas/' . $id_kelasonline));
+            echo view('templates/v_header', $data);
+            echo view('templates/v_sidebar');
+            echo view('templates/v_topbar');
+            echo view('Siswakelasonline/jtugas');
+            echo view('templates/v_footer');
+        }
+        $id_materi = session()->get('id_materi');
+        session()->setFlashData('validationguruerror', \Config\Services::validation()->listErrors());
+        return redirect()->to(base_url('siswakelasonline/jtugas/' . $id_materi));
+    }
+    
+    public function presensi($id_materi)
+    {
+        $data = [
+            'judul' => 'Presensi Kelas Online',
+        ];
+        session()->set('id_materi', $id_materi);
+        
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('Siswakelasonline/presensi');
+        echo view('templates/v_footer');
+    }
+    public function tambahpresensi()
+    {
+       
+            $presensi = new M_Siswakelasonline();
+            $data = [
+                'judul' => 'Presensi Kelas Online',
+            ];
+            $id_materi = session()->get('id_materi');
+            $id_kelasonline = session()->get('id_kelasonline');
+            $id_siswa = session()->get('id_siswa');
+            $presensi->presensi($id_kelasonline, $id_materi, $id_siswa);
+
+            session()->setFlashdata('message', 'Di Tambahkan');
+            return redirect()->to(base_url('siswakelasonline/presensi/' . $id_kelasonline));
+
+            echo view('templates/v_header', $data);
+            echo view('templates/v_sidebar');
+            echo view('templates/v_topbar');
+            echo view('Siswakelasonline/jtugas');
+            echo view('templates/v_footer');
+       
+    }
 }

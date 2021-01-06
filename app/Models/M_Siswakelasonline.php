@@ -6,9 +6,10 @@ use CodeIgniter\Model;
 
 class M_Siswakelasonline extends Model
 {
-    // protected $table = 'pesertakelasonline';
-    // protected $primaryKey = 'id_pesertakelasonline';
-    // protected $allowedFields = ['id_kelasonline', 'id_siswa',];
+    protected $useTimestamps = true;
+    protected $table = 'presensi';
+    protected $primaryKey = 'id_presensi';
+    protected $allowedFields = ['id_kelasonline', 'id_materi', 'id_siswa'];
 
     public function loadData($username)
     {
@@ -36,18 +37,15 @@ class M_Siswakelasonline extends Model
         ON k.id_guru = g.id_guru
         WHERE s.username = '$username'");
         return $query->getResultArray();
-            
     }
 
     public function loadDataMateri($_id_kelasonline)
     {
         $query = $this->db->query('SELECT k.id_kelasonline AS id_kelasonline,
-        m.id_materi AS id_kelasonline,
+        m.id_materi AS id_materi,
         m.judul AS judul,
         m.deskripsi AS deskripsi,
         m.file AS file_materi,
-        m.tanggalakses AS tanggalakses,
-        m.jamakses AS jamakses,
         p.nama_mapel AS nama_mapel
         FROM kelasonline AS k 
         JOIN materi AS m 
@@ -58,9 +56,47 @@ class M_Siswakelasonline extends Model
         return $query->getResultArray();
     }
 
+    public function loadDataKelas($_id_kelasonline)
+    {
+        $query = $this->db->query('SELECT k.id_kelasonline AS id_kelasonline,        
+        p.nama_mapel AS nama_mapel,
+        kl.kelas AS kelas
+        FROM kelasonline AS k         
+        JOIN mapel AS p
+        ON k.id_mapel = p.id_mapel
+        JOIN kelas AS kl
+        ON k.id_kelas = kl.id_kelas
+        WHERE k.id_kelasonline = ' . $_id_kelasonline);
+        return $query->getRowArray();
+    }
+
     public function detailData($id)
     {
         return $this->db->table('materi')->where('id_materi', $id)->get()->getRowArray();
     }
-    
+    public function find_id_s($username)
+    {
+        $query = $this->db->query("SELECT s.id_siswa AS id_siswa,
+        s.username AS username
+        FROM siswa AS s
+        WHERE s.username =  '$username'");
+        return $query->getRowArray();
+    }
+
+    public function kumpul_tugas($file_n, $id_kelasonline, $id_materi, $id_siswa)
+    {
+        $query = $this->db->query("INSERT INTO `j_tugas`(`id_kelasonline`, `id_materi`, `id_siswa`, `file`) 
+        VALUES ('$id_kelasonline','$id_materi','$id_siswa','$file_n')");
+        return $query->getResultArray();
+    }
+
+
+
+
+    public function presensi($id_kelasonline, $id_materi, $id_siswa)
+    {
+        $query = $this->db->query("INSERT INTO `presensi`(`id_kelasonline`, `id_materi`, `id_siswa`) 
+        VALUES ('$id_kelasonline','$id_materi','$id_siswa')");
+        return $query->getResultArray();
+    }
 }
