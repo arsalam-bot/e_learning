@@ -39,30 +39,18 @@
                                         <h1 class="h4 text-gray-900 mb-4"><b>E-Learning SMP Negeri 3 Bungku</b></h1>
                                     </div>
 
-                                    <!-- <?php
-                                            if (session()->get('message')) :
-                                            ?>
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            Login Gagal <strong><?= session()->getFlashdata('message'); ?></strong>
-                                        </div>
-                                    <?php
-                                            endif;
-                                    ?> -->
-
                                     <?php if (session()->getFlashdata('msg')) : ?>
                                         <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
                                     <?php endif; ?>
 
-                                    <!-- <?php echo form_open(); ?> -->
                                     <form class="user mb-2" action="<?= base_url('auth/cek_login'); ?>" method="post">
                                         <div class="form-group mb-3">
-                                            <input type="text" class="form-control form-control-user" name="username" id="username" placeholder="Masukan Username Anda">
+                                            <input type="text" class="form-control form-control-user" 
+                                            name="username" id="username" placeholder="Masukan Username Anda">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Masukan Password Anda">
+                                            <input type="password" class="form-control form-control-user" 
+                                            name="password" id="password" placeholder="Masukan Password Anda">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block mt-5">
                                             Login
@@ -72,7 +60,6 @@
                                     <div class="text-center">
                                         <p class="small"><b> Lupa Password?</b> Silahkan hubungi bagian tata usaha</p>
                                     </div>
-                                    <!-- <?php form_close(); ?> -->
                                 </div>
                             </div>
                         </div>

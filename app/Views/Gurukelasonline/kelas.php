@@ -8,18 +8,14 @@
             </h6>
         </div>
         <div class="card-body">
-            <?php
-            if (session()->get('message')) :
-            ?>
+            <?php if (session()->get('message')) : ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     Materi Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
                 </div>
-            <?php
-            endif;
-            ?>
+            <?php endif; ?>
             <a href="/gurukelasonline/tambahmateri/<?php echo $id_kelasonline ?>" class="btn btn-success">
                 <i class="fa fa-plus"></i><span class="text"> Tambah Materi</span>
             </a>

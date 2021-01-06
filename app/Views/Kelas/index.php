@@ -1,34 +1,23 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-    
+
     <!-- DataTables Example -->
     <div class="card shadow mb-4 mt-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-success">Data Kelas</h6>
         </div>
-        <?php
-        if (session()->get('message')) :
-        ?>
-
-
+        <?php if (session()->get('message')) :  ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 Data Kelas Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
             </div>
-
-        <?php
-        endif;
-        ?>
+        <?php endif; ?>
         <div class="card-body">
             <a href="<?= base_url('kelas/tambah') ?>" class="btn btn-success mb-4">
                 <i class="fa fa-plus"></i><span class="text"> Tambah Data</span>
             </a>
-
-            <!-- <button class="btn btn-success mb-4" data-toggle="modal" data-target="#modalTambah">
-                <i class="fa fa-plus"></i><span class="text"> Tambah Data</span>
-            </button> -->
             <div class="table-responsive ">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -44,11 +33,9 @@
                                 <td><?= $value['id_kelas'] ?></td>
                                 <td><?= $value['kelas'] ?></td>
                                 <td>
-
                                     <a href="<?= base_url('kelas/edit/' . $value['id_kelas']) ?>" class="btn btn-circle btn-sm btn-warning" type="button">
                                         <i class="fa fa-edit"></i>
                                     </a>
-
                                     <button class="btn btn-circle btn-sm btn-danger" type="button" data-toggle="modal" data-target="#modalHapus<?= $value['id_kelas'] ?>">
                                         <i class="fa fa-trash-alt"></i>
                                     </button>

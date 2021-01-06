@@ -22,9 +22,7 @@
         endif;
         ?>
         <div class="card-body">
-            <a href="<?= base_url('siswa/tambah') ?>" class="btn btn-success mb-4">
-                <i class="fa fa-plus"></i><span class="text"> Tambah Data</span>
-            </a>
+
             <div class="table-responsive ">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -37,7 +35,6 @@
                             <th>Password Siswa</th>
                             <th>Foto Siswa</th>
                             <th class="text-center">Level</th>
-                            <th width="200px" class="text-center">Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,23 +48,6 @@
                                 <td><?= $value['password'] ?></td>
                                 <td class="text-center"><img src="<?= base_url('foto siswa/' . $value['foto']) ?>" class="img-profile rounded-circle" width="70px" height="70px"></td>
                                 <td class="text-center"><?= $value['level'] ?></td>
-                                <td>
-
-                                    <a href="<?= base_url('siswa/edit/' . $value['id_siswa']) ?>" class="btn btn-circle btn-sm btn-warning" type="button">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-
-                                    <button class="btn btn-circle btn-sm btn-danger" type="button" data-toggle="modal" data-target="#modalHapus<?= $value['id_siswa'] ?>">
-                                        <i class="fa fa-trash-alt"></i>
-                                    </button>
-
-                                    <button class="btn btn-info btn-icon-split" type="button">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-info-circle"></i>
-                                        </span>
-                                        <span class="text">Lihat Detail</span>
-                                    </button>
-                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>

@@ -42,7 +42,7 @@
                                 <td><?= $value['nama_mapel'] ?> - <?= $value['kelas'] ?> - <?= $value['nama_guru'] ?></td>
                                 <td><?= $value['nama_siswa'] ?></td>
                                 <td>
-                                    <button class="btn btn-circle btn-sm btn-danger" type="button" data-toggle="modal" data-target="#modalHapus<?= $value['pesertakelasonline'] ?>">
+                                    <button class="btn btn-circle btn-sm btn-danger" data-target="#modalHapus<?= $value['pesertakelasonline'] ?>" type="button" data-toggle="modal">
                                         <i class="fa fa-trash-alt"></i>
                                     </button>
                                 </td>

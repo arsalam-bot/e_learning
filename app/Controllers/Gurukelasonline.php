@@ -229,7 +229,7 @@ class Gurukelasonline extends BaseController
     {
         session()->set('id_materi', $id_presensinya);
         $data = [
-            'judul' => 'Jawaban Tugas Kelas Online',
+            'judul' => 'Presensi Kelas Online',
             'presensi' => $this->M_Gurukelasonline->loadDataPresensi($id_presensinya),
         ];
         echo view('templates/v_header', $data);

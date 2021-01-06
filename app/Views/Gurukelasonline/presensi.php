@@ -6,7 +6,7 @@
         <div class="col-sm-10">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Daftar <?= $judul; ?></h6>
+                    <h6 class="m-0 font-weight-bold text-success">Daftar <?= $judul; ?></h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive ">
@@ -20,11 +20,11 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($presensi as $key => $value) { ?>
-                                    <tr>
-                                        <td><?= $value['nisn'] ?></td>
-                                        <td><?= $value['nama_siswa'] ?></td>
-                                        <td><?= $value['jam_absen'] ?></td>
-                                    </tr>
+<tr>
+    <td><?= $value['nisn'] ?></td>
+    <td><?= $value['nama_siswa'] ?></td>
+    <td><?= $value['jam_absen'] ?></td>
+</tr>
                                 <?php } ?>
                             </tbody>
                         </table>

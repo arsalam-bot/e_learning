@@ -167,12 +167,6 @@
                 <span>Kelas Online</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= base_url('guru'); ?>">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Data LogIn Guru</span>
-            </a>
-        </li>
 
     <?php else : ?>
         <!-- Nav Item - Dashboard -->
@@ -195,12 +189,6 @@
             <a class="nav-link collapsed" href="<?= base_url('siswakelasonline'); ?>">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Data Kelas Online</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= base_url('siswa'); ?>">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Data LogIn Siswa</span>
             </a>
         </li>
     <?php endif; ?>

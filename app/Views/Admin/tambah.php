@@ -7,10 +7,9 @@
         <div class="col-sm-6">
             <div class="card shadow mb-4 mt-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Tambah <?= $judul; ?></h6>
+                    <h6 class="m-0 font-weight-bold text-success">Tambah <?= $judul; ?></h6>
                 </div>
                 <div class="card-body">
-
                     <?php if (session()->get('validationguruerror')) : ?>
                         <div class="alert alert-danger alert-dismissible fade show p-0 pt-2" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="close">
@@ -19,9 +18,7 @@
                             <strong><?= session()->get('validationguruerror'); ?></strong>
                         </div>
                         <?= session()->remove('validationguruerror'); ?>
-
-                    <?php endif; ?>
-                    <?php
+                    <?php endif; ?> <?php
                     echo form_open_multipart('admin/tambahadmin') ?>
                     <div class="form-group mb-8">
                         <label>Username</label>

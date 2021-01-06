@@ -32,20 +32,19 @@ class Auth extends Controller
 
         if ($cek_admin) {
             session()->set('log', true);
-            session()->set('nama', $cek_admin['nama']);
-            session()->set('foto', $cek_admin['foto']);
             session()->set('username', $cek_admin['username']);
             session()->set('level', $cek_admin['level']);
+            session()->set('nama', $cek_admin['nama']);
+            session()->set('foto', $cek_admin['foto']);
             //redirect data
             if (session()->get('level') == "Admin") {
                 return redirect()->to(base_url('/home'));
-            }
-            if ($cek_admin) {
+            } elseif ($cek_admin) {
                 session()->set('log', true);
-                session()->set('nama', $cek_admin['nama']);
-                session()->set('foto', $cek_admin['foto']);
                 session()->set('username', $cek_admin['username']);
                 session()->set('level', $cek_admin['level']);
+                session()->set('nama', $cek_admin['nama']);
+                session()->set('foto', $cek_admin['foto']);
                 //redirect data
                 if (session()->get('level') == "Kepsek") {
                     return redirect()->to(base_url('/home'));
@@ -53,20 +52,20 @@ class Auth extends Controller
             }
         } elseif ($cek_guru) {
             session()->set('log', true);
-            session()->set('nama_guru', $cek_guru['nama_guru']);
-            session()->set('foto', $cek_guru['foto']);
             session()->set('username', $cek_guru['username']);
             session()->set('level', $cek_guru['level']);
+            session()->set('nama_guru', $cek_guru['nama_guru']);
+            session()->set('foto', $cek_guru['foto']);
             //redirect data
             if (session()->get('level') == "Guru") {
                 return redirect()->to(base_url('/home'));
             }
         } elseif ($cek_siswa) {
             session()->set('log', true);
-            session()->set('nama_siswa', $cek_siswa['nama_siswa']);
-            session()->set('foto', $cek_siswa['foto']);
             session()->set('username', $cek_siswa['username']);
             session()->set('level', $cek_siswa['level']);
+            session()->set('nama_siswa', $cek_siswa['nama_siswa']);
+            session()->set('foto', $cek_siswa['foto']);
             //redirect data
             if (session()->get('level') == "Siswa") {
                 return redirect()->to(base_url('/home'));
