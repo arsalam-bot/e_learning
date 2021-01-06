@@ -24,6 +24,19 @@ class Siswa extends BaseController
         echo view('siswa/index');
         echo view('templates/v_footer');
     }
+    public function kindex()
+    {
+        $data = [
+            'judul' => 'Data Siswa',
+            'siswa' => $this->M_Siswa->loadData(),
+        ];
+
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('siswa/kindex');
+        echo view('templates/v_footer');
+    }
 
     public function tambah()
     {

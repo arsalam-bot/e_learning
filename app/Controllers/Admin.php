@@ -24,6 +24,19 @@ class Admin extends BaseController
         echo view('admin/index');
         echo view('templates/v_footer');
     }
+    public function kindex()
+    {
+        $data = [
+            'judul' => 'Data Admin',
+            'admin' => $this->M_Admin->loadData(),
+        ];
+        
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('admin/kindex');
+        echo view('templates/v_footer');
+    }
 
     public function tambah()
     {
@@ -74,6 +87,13 @@ class Admin extends BaseController
                     'mime_in' => '{field} hanya boleh .PNG, .JPG, .JPEG.',
                 ]
             ],
+            'level' => [
+                'label' => 'Level Admin',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.',
+                ]
+            ],
         ])) {
             $foto = $this->request->getFile('foto');
             $nama_file = $foto->getClientName();
@@ -81,7 +101,8 @@ class Admin extends BaseController
                 'username' => $this->request->getPost('username'),
                 'password' => $this->request->getPost('password'),
                 'nama' => $this->request->getPost('nama'),
-                'level' => 'Admin',
+                //'level' => 'Admin',
+                'level' => $this->request->getPost('level'),
                 'foto' => $nama_file,
             ];
 
@@ -135,6 +156,13 @@ class Admin extends BaseController
                     'mime_in' => '{field} hanya boleh .PNG, .JPG, .JPEG.',
                 ]
             ],
+            'level' => [
+                'label' => 'Level Admin',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.',
+                ]
+            ],
         ])) {
             $foto = $this->request->getFile('foto');
             if ($foto->getError() == 4) {
@@ -142,6 +170,7 @@ class Admin extends BaseController
                     'id_admin' => $id,
                     'password' => $this->request->getPost('password'),
                     'nama' => $this->request->getPost('nama'),
+                    'level' => $this->request->getPost('level'),
                 ];
                 $this->M_Admin->edit($data);
             } else {
@@ -154,6 +183,7 @@ class Admin extends BaseController
                     'id_admin' => $id,
                     'password' => $this->request->getPost('password'),
                     'nama' => $this->request->getPost('nama'),
+                    'level' => $this->request->getPost('level'),
                     'foto' => $nama_file,
                 ];
                 $foto->move('foto', $nama_file);

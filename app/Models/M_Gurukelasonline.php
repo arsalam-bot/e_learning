@@ -19,6 +19,7 @@ class M_Gurukelasonline extends Model
             ->where('username', session()->get('username'))
             ->get()->getResultArray();
     }
+
     public function loadDataJawabanTugas($id_materinya)
     {
         $query = $this->db->query('SELECT 
@@ -28,7 +29,8 @@ class M_Gurukelasonline extends Model
                 s.nama_siswa AS nama_siswa,
                 j.file AS nama_file,
                 m.id_materi AS id_materi,
-                j.id_jtugas AS id_jtugas
+                j.id_jtugas AS id_jtugas,
+                j.created_at AS jam_tugas
                 FROM j_tugas AS j
                 JOIN kelasonline AS k
                 ON j.id_kelasonline = k.id_kelasonline
@@ -39,6 +41,22 @@ class M_Gurukelasonline extends Model
                 JOIN siswa AS s
                 ON j.id_siswa = s.id_siswa
                 WHERE j.id_materi = ' . $id_materinya);
+        return $query->getResultArray();
+    }
+
+    public function loadDataPresensi($id_presensinya)
+    {
+        $query = $this->db->query('SELECT 
+		        s.nisn AS nisn,
+                s.nama_siswa AS nama_siswa,
+                m.judul AS judul_topik,
+                p.created_at AS jam_absen
+                FROM presensi AS p
+                JOIN siswa AS s
+                ON p.id_siswa = s.id_siswa
+                JOIN materi AS m
+                ON p.id_materi = m.id_materi
+                WHERE p.id_materi = ' . $id_presensinya);
         return $query->getResultArray();
     }
 
@@ -76,12 +94,6 @@ class M_Gurukelasonline extends Model
     public function tambahmateri($data)
     {
         return $this->db->table('materi')->insert($data);
-
-        // $query = $this->db->query("INSERT INTO 
-        // `materi`( `id_kelasonline`, 
-        // `judul`, `deskripsi`, `file`) VALUES 
-        // ('$id_onlinekelas','$id_judul','$id_deskripsi','$file_materi')");
-        // return $query->getResultArray();
     }
 
     public function detailData($id)
@@ -94,13 +106,6 @@ class M_Gurukelasonline extends Model
     }
     public function detailjawabanPDF($id)
     {
-        //  return $this->db->table('j_tugas')->where('id_jtugas', $id)->get()->getRowArray();
-
-        // $query = $this->db->query('SELECT `id_jtugas`, `id_kelasonline`, 
-        // `id_materi`, `id_siswa`, `file`, `waktukirim` 
-        // FROM `j_tugas` WHERE id_jtugas = ' . $id);
-        // return $query->getRowArray();
-
         $query = $this->db->query('SELECT 
         j.id_jtugas AS id_jtugas,
         s.id_siswa AS id_siswa,
@@ -124,9 +129,3 @@ class M_Gurukelasonline extends Model
         return $this->db->table('materi')->where('id_materi', $data['id_materi'])->delete($data);
     }
 }
-
-// public function tambahmateri($id_kelasonline, $deskripsi, $file)
-// {
-//     $query = $this->db->query("INSERT INTO `materi`(`id_kelasonline`, `deskripsi`, `file`) VALUES ('$id_kelasonline','$deskripsi','$file');");
-//     return $query->result_array();
-// }

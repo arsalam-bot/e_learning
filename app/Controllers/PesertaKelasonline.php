@@ -28,6 +28,19 @@ class PesertaKelasonline extends BaseController
         echo view('pesertakelasonline/index');
         echo view('templates/v_footer');
     }
+    public function kindex()
+    {
+        $data = [
+            'judul' => 'Data Peserta Kelas Online',
+            'pesertakelasonline' => $this->M_PesertaKelasonline->loadData(),
+        ];
+
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('pesertakelasonline/kindex');
+        echo view('templates/v_footer');
+    }
 
     public function tambah()
     {

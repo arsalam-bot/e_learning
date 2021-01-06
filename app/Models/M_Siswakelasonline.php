@@ -6,10 +6,10 @@ use CodeIgniter\Model;
 
 class M_Siswakelasonline extends Model
 {
-    protected $useTimestamps = true;
-    protected $table = 'presensi';
-    protected $primaryKey = 'id_presensi';
-    protected $allowedFields = ['id_kelasonline', 'id_materi', 'id_siswa'];
+    protected $useTimestamps = false;
+    // protected $table = 'presensi';
+    // protected $primaryKey = 'id_presensi';
+    // protected $allowedFields = ['id_kelasonline', 'id_materi', 'id_siswa'];
 
     public function loadData($username)
     {
@@ -83,20 +83,18 @@ class M_Siswakelasonline extends Model
         return $query->getRowArray();
     }
 
-    public function kumpul_tugas($file_n, $id_kelasonline, $id_materi, $id_siswa)
+    public function kumpul_tugas($created_at, $file_n, $id_kelasonline, $id_materi, $id_siswa)
     {
-        $query = $this->db->query("INSERT INTO `j_tugas`(`id_kelasonline`, `id_materi`, `id_siswa`, `file`) 
-        VALUES ('$id_kelasonline','$id_materi','$id_siswa','$file_n')");
+        $query = $this->db->query("INSERT INTO `j_tugas`(`id_kelasonline`, `id_materi`, `id_siswa`, `file`, `created_at`) 
+        VALUES ('$id_kelasonline','$id_materi','$id_siswa','$file_n','$created_at')");
         return $query->getResultArray();
     }
 
 
-
-
-    public function presensi($id_kelasonline, $id_materi, $id_siswa)
+    public function presensi($created_at, $id_kelasonline, $id_materi, $id_siswa)
     {
-        $query = $this->db->query("INSERT INTO `presensi`(`id_kelasonline`, `id_materi`, `id_siswa`) 
-        VALUES ('$id_kelasonline','$id_materi','$id_siswa')");
+        $query = $this->db->query("INSERT INTO `presensi`(`id_kelasonline`, `id_materi`, `id_siswa`, `created_at`) 
+        VALUES ('$id_kelasonline','$id_materi','$id_siswa','$created_at')");
         return $query->getResultArray();
     }
 }

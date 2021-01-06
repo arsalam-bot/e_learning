@@ -24,6 +24,19 @@ class Kelas extends BaseController
         echo view('kelas/index');
         echo view('templates/v_footer');
     }
+    public function kindex()
+    {
+        $data = [
+            'judul' => 'Data Kelas',
+            'kelas' => $this->M_Kelas->loadData(),
+        ];
+
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('kelas/kindex');
+        echo view('templates/v_footer');
+    }
 
     public function tambah()
     {

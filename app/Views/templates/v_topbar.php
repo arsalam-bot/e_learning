@@ -11,7 +11,7 @@
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                 <i class="fa fa-bars"></i>
             </button>
-            
+
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
 
@@ -43,6 +43,8 @@
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                             <?php if (session()->get('level') == "Admin") : ?>
                                 <?= session()->get('nama') ?> | <?= session()->get('level') ?>
+                            <?php elseif (session()->get('level') == "Kepsek") : ?>
+                                <?= session()->get('nama') ?> | <?= session()->get('level') ?>
                             <?php elseif (session()->get('level') == "Guru") : ?>
                                 <?= session()->get('nama_guru') ?> | <?= session()->get('level') ?>
                             <?php else : ?>
@@ -51,6 +53,8 @@
                         </span>
                         <img class="img-profile rounded-circle" src="
                         <?php if (session()->get('level') == "Admin") : ?>
+                            <?= base_url('foto/' . session()->get('foto')) ?>
+                        <?php elseif (session()->get('level') == "Kepsek") : ?>
                             <?= base_url('foto/' . session()->get('foto')) ?>
                             <?php elseif (session()->get('level') == "Guru") : ?>
                                 <?= base_url('foto guru/' . session()->get('foto')) ?>

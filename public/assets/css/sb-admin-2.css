@@ -470,6 +470,8 @@ mark,
   display: block;
   font-size: 80%;
   color: #858796;
+  position: fixed;
+  bottom: 0;
 }
 
 .blockquote-footer::before {
@@ -4554,6 +4556,8 @@ input[type="button"].btn-block {
   padding: 0.75rem 1.25rem;
   background-color: #f8f9fc;
   border-top: 1px solid #e3e6f0;
+  position: fixed;
+  bottom: 0;
 }
 
 .card-footer:last-child {
@@ -5786,6 +5790,8 @@ a.close.disabled {
   border-top: 1px solid #e3e6f0;
   border-bottom-right-radius: calc(0.3rem - 1px);
   border-bottom-left-radius: calc(0.3rem - 1px);
+  position:fixed;
+  bottom:0;
 }
 
 .modal-footer > * {
@@ -11211,6 +11217,8 @@ form.user .btn-user {
 footer.sticky-footer {
   padding: 2rem 0;
   flex-shrink: 0;
+  position:fixed;
+  bottom:0;
 }
 
 footer.sticky-footer .copyright {

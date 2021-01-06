@@ -14,7 +14,7 @@
                         <hr />
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <a href="" class="btn btn-info btn-icon-split" type="button">
+                                <a href="<?= base_url('gurukelasonline/akelas/' . $value['id_kelasonline']) ?>" class="btn btn-info btn-icon-split" type="button">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-info-circle"></i>
                                     </span>

@@ -78,6 +78,71 @@
                 <span>Data Kelas</span>
             </a>
         </li>
+    <?php elseif (session()->get('level') == "Kepsek") : ?>
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('dashboard'); ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Interface
+        </div>
+
+        <!-- Nav Item - Data Kelas Online -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= base_url('kelasonline/kindex') ?>">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Kelas Online</span>
+            </a>
+        </li>
+        <!-- Nav Item - Data Kelas Online -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= base_url('pesertakelasonline/kindex') ?>">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Peserta Kelas Online</span>
+            </a>
+        </li>
+        <!-- Nav Item - Data Admin -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= base_url('admin/kindex') ?>">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Admin</span>
+            </a>
+        </li>
+        <!-- Nav Item - Data Guru -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= base_url('guru/kindex') ?>">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Guru</span>
+            </a>
+        </li>
+        <!-- Nav Item - Data Siswa -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= base_url('siswa/kindex') ?>">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Siswa</span>
+            </a>
+        </li>
+        <!-- Nav Item - Data Mata Pelajaran -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= base_url('mapel/kindex') ?>">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Mata Pelajaran</span>
+            </a>
+        </li>
+        <!-- Nav Item - Data Kelas -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= base_url('kelas/kindex') ?>">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Kelas</span>
+            </a>
+        </li>
 
     <?php elseif (session()->get('level') == "Guru") : ?>
         <!-- Nav Item - Dashboard -->

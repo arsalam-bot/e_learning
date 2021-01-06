@@ -24,6 +24,19 @@ class Mapel extends BaseController
         echo view('mapel/index');
         echo view('templates/v_footer');
     }
+    public function kindex()
+    {
+        $data = [
+            'judul' => 'Data Mata Pelajaran',
+            'mapel' => $this->M_Mapel->loadData(),
+        ];
+
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('mapel/kindex');
+        echo view('templates/v_footer');
+    }
 
     public function tambah()
     {

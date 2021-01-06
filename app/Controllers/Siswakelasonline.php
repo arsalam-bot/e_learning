@@ -100,15 +100,6 @@ class Siswakelasonline extends BaseController
 
     public function tambahjawabantugas()
     {
-        if ($this->validate([
-            'file' => [
-                'label' => 'File Jawaban',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} tidak boleh kosong.',
-                ]
-            ]
-        ])) {
             $tugas = new M_Siswakelasonline();
             $data = [
                 'judul' => 'Jawaban Tugas Kelas Online',
@@ -118,7 +109,8 @@ class Siswakelasonline extends BaseController
             $id_materi = session()->get('id_materi');
             $id_kelasonline = session()->get('id_kelasonline');
             $id_siswa = session()->get('id_siswa');
-            $tugas->kumpul_tugas($file_n, $id_kelasonline, $id_materi, $id_siswa);
+            $created_at = date('Y-m-d H:i:s'); 
+            $tugas->kumpul_tugas($created_at, $file_n, $id_kelasonline, $id_materi, $id_siswa);
             $file_tugas->move('jawaban tugas', $file_n);
             session()->setFlashdata('message', 'Di Tambahkan');
             return redirect()->to(base_url('siswakelasonline/kelas/' . $id_kelasonline));
@@ -127,10 +119,6 @@ class Siswakelasonline extends BaseController
             echo view('templates/v_topbar');
             echo view('Siswakelasonline/jtugas');
             echo view('templates/v_footer');
-        }
-        $id_materi = session()->get('id_materi');
-        session()->setFlashData('validationguruerror', \Config\Services::validation()->listErrors());
-        return redirect()->to(base_url('siswakelasonline/jtugas/' . $id_materi));
     }
     
     public function presensi($id_materi)
@@ -153,13 +141,14 @@ class Siswakelasonline extends BaseController
             $data = [
                 'judul' => 'Presensi Kelas Online',
             ];
+            $created_at = date('Y-m-d H:i:s');
             $id_materi = session()->get('id_materi');
             $id_kelasonline = session()->get('id_kelasonline');
             $id_siswa = session()->get('id_siswa');
-            $presensi->presensi($id_kelasonline, $id_materi, $id_siswa);
+            $presensi->presensi($created_at, $id_kelasonline, $id_materi, $id_siswa);
 
-            session()->setFlashdata('message', 'Di Tambahkan');
-            return redirect()->to(base_url('siswakelasonline/presensi/' . $id_kelasonline));
+            session()->setFlashdata('message1', 'Presensi');
+            return redirect()->to(base_url('siswakelasonline/kelas/' . $id_kelasonline));
 
             echo view('templates/v_header', $data);
             echo view('templates/v_sidebar');

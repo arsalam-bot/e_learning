@@ -8,18 +8,22 @@
             </h6>
         </div>
         <div class="card-body">
-            <?php
-            if (session()->get('message')) :
-            ?>
+            <?php if (session()->get('message')) :  ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     Tugas Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
                 </div>
-            <?php
-            endif;
-            ?>
+            <?php endif; ?>
+            <?php if (session()->get('message1')) : ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    Berhasil <strong><?= session()->getFlashdata('message1'); ?></strong>
+                </div>
+            <?php endif; ?>
             <?php
             foreach ($materi as $key => $value) { ?>
                 <h5 class="m-0 font-weight-bold text-info"><?= $value['judul']; ?></h5>

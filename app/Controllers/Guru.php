@@ -24,6 +24,19 @@ class Guru extends BaseController
         echo view('guru/index');
         echo view('templates/v_footer');
     }
+    public function kindex()
+    {
+        $data = [
+            'judul' => 'Data Guru',
+            'guru' => $this->M_Guru->loadData(),
+        ];
+
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('guru/kindex');
+        echo view('templates/v_footer');
+    }
 
     public function tambah()
     {

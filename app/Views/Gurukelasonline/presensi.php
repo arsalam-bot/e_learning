@@ -13,19 +13,17 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>Nisn</th>
                                     <th>Siswa</th>
-                                    <th>File</th>
-                                    <th>Jam Kirim Tugas</th>
+                                    <th>Jam Presensi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($jawabantugas as $key => $value) { ?>
+                                <?php foreach ($presensi as $key => $value) { ?>
                                     <tr>
+                                        <td><?= $value['nisn'] ?></td>
                                         <td><?= $value['nama_siswa'] ?></td>
-                                        <td><a href="<?= base_url('gurukelasonline/viewjpdf/' . $value['id_jtugas']); ?>">
-                                                <span><embed><?= $value['nama_file'] ?></embed></span>
-                                        </td>
-                                        <td><?= $value['jam_tugas'] ?></td>
+                                        <td><?= $value['jam_absen'] ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

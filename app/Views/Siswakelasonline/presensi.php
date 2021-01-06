@@ -48,10 +48,13 @@
                             <option id="keterangan" class="text-dark">Hadir</option>
                         </select>
                     </div> -->
-                    <input type="hidden" name="tanggal" value="<?php echo date("Y-m-d H:i:s"); ?>">
+                    <!-- <input type="hidden" name="tanggal" value="?php echo date("Y-m-d H:i:s"); ?>"> -->
+                    <div class="form-group">
+                        <label>Tekan Tombol "Presensi" Untuk Presensi</label>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary">Presensi</button>
                 </div>
                 <?php echo form_close() ?>
             </div>

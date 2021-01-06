@@ -41,10 +41,6 @@ class Gurukelasonline extends BaseController
             'judul' => 'Kelas Online',
             'gurukelasonline' => $this->M_Gurukelasonline->loadData(),
         ];
-
-        $time = Time::parse('America/Chicago');
-        echo $time->toDateTimeString();
-
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
@@ -64,6 +60,21 @@ class Gurukelasonline extends BaseController
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
         echo view('gurukelasonline/kelas', $data);
+        echo view('templates/v_footer');
+    }
+
+    public function akelas($_id_kelasonline)
+    {
+        $data = [
+            'judul' => 'Kelas Online',
+            'materi' => $this->M_Gurukelasonline->loadDataMateri($_id_kelasonline),
+            'kelas' => $this->M_Gurukelasonline->loadDataKelas($_id_kelasonline),
+        ];
+        $data['id_kelasonline'] = $_id_kelasonline;
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('gurukelasonline/akelas', $data);
         echo view('templates/v_footer');
     }
 
@@ -212,6 +223,19 @@ class Gurukelasonline extends BaseController
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
         echo view('gurukelasonline/jtugas', $data);
+        echo view('templates/v_footer');
+    }
+    public function presensi($id_presensinya)
+    {
+        session()->set('id_materi', $id_presensinya);
+        $data = [
+            'judul' => 'Jawaban Tugas Kelas Online',
+            'presensi' => $this->M_Gurukelasonline->loadDataPresensi($id_presensinya),
+        ];
+        echo view('templates/v_header', $data);
+        echo view('templates/v_sidebar');
+        echo view('templates/v_topbar');
+        echo view('gurukelasonline/presensi', $data);
         echo view('templates/v_footer');
     }
 }

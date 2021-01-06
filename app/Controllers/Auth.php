@@ -40,6 +40,17 @@ class Auth extends Controller
             if (session()->get('level') == "Admin") {
                 return redirect()->to(base_url('/home'));
             }
+            if ($cek_admin) {
+                session()->set('log', true);
+                session()->set('nama', $cek_admin['nama']);
+                session()->set('foto', $cek_admin['foto']);
+                session()->set('username', $cek_admin['username']);
+                session()->set('level', $cek_admin['level']);
+                //redirect data
+                if (session()->get('level') == "Kepsek") {
+                    return redirect()->to(base_url('/home'));
+                }
+            }
         } elseif ($cek_guru) {
             session()->set('log', true);
             session()->set('nama_guru', $cek_guru['nama_guru']);
