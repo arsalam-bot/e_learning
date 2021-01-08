@@ -20,11 +20,11 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($presensi as $key => $value) { ?>
-<tr>
-    <td><?= $value['nisn'] ?></td>
-    <td><?= $value['nama_siswa'] ?></td>
-    <td><?= $value['jam_absen'] ?></td>
-</tr>
+                                    <tr>
+                                        <td><?= $value['nisn'] ?></td>
+                                        <td><?= $value['nama_siswa'] ?></td>
+                                        <td><?= $value['jam_absen'] ?></td>
+                                    </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
