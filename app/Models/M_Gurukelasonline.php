@@ -26,6 +26,7 @@ class M_Gurukelasonline extends Model
                 k.id_kelasonline AS id_kelasonline,
                 n.nama_mapel AS nama_mapel,
                 m.judul AS judul,
+                s.nisn AS nisn,
                 s.nama_siswa AS nama_siswa,
                 j.file AS nama_file,
                 m.id_materi AS id_materi,

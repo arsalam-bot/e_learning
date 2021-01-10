@@ -9,19 +9,21 @@
                     <h6 class="m-0 font-weight-bold text-success">Daftar <?= $judul; ?></h6>
                 </div>
                 <div class="card-body">
+                    <a href="<?= base_url('gurukelasonline') ?>" class="btn btn-secondary" data-dismiss="modal">Kembali</a>
+                    <hr />
                     <div class="table-responsive ">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Siswa</th>
-                                    <th>File</th>
+                                    <th>Nama Siswa</th>
+                                    <th>File Jawaban</th>
                                     <th>Jam Kirim Tugas</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($jawabantugas as $key => $value) { ?>
                                     <tr>
-                                        <td><?= $value['nama_siswa'] ?></td>
+                                        <td><?= $value['nisn'] ?> <?= $value['nama_siswa'] ?></td>
                                         <td><a href="<?= base_url('gurukelasonline/viewjpdf/' . $value['id_jtugas']); ?>">
                                                 <span><embed><?= $value['nama_file'] ?></embed></span>
                                         </td>

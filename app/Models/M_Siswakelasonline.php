@@ -6,7 +6,8 @@ use CodeIgniter\Model;
 
 class M_Siswakelasonline extends Model
 {
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
+    protected $created_at  = 'created_at';
     // protected $table = 'presensi';
     // protected $primaryKey = 'id_presensi';
     // protected $allowedFields = ['id_kelasonline', 'id_materi', 'id_siswa'];
