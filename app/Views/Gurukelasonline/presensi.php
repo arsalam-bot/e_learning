@@ -9,6 +9,8 @@
                     <h6 class="m-0 font-weight-bold text-success">Daftar <?= $judul; ?></h6>
                 </div>
                 <div class="card-body">
+                    <a href="<?= base_url('gurukelasonline') ?>" class="btn btn-secondary" data-dismiss="modal">Kembali</a>
+                    <hr />
                     <div class="table-responsive ">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
