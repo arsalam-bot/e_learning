@@ -34,7 +34,6 @@
             </div>
         <?php } ?>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

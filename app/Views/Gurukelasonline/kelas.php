@@ -59,6 +59,11 @@
     </div>
 </div>
 
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
 <!-- Function to Hapus Data -->
 <?php foreach ($materi as $key => $value) { ?>
     <div class="modal fade " id="modalHapus<?= $value['id_kelasonline'] ?>">

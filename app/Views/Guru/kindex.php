@@ -52,27 +52,3 @@
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-
-<!-- Function to Hapus Data -->
-<?php foreach ($guru as $key => $value) { ?>
-    <div class="modal fade " id="modalHapus<?= $value['id_guru'] ?>">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Hapus Data Guru</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Hapus Data <b><?= $value['nama_guru'] ?></b>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="<?= base_url('guru/hapus/' . $value['id_guru']) ?>" class="btn btn-primary">Hapus</a>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-<?php } ?>
