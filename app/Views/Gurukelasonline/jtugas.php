@@ -24,7 +24,7 @@
                                 <?php foreach ($jawabantugas as $key => $value) { ?>
                                     <tr>
                                         <td><?= $value['nisn'] ?> <?= $value['nama_siswa'] ?></td>
-                                        <td><a href="<?= base_url('gurukelasonline/viewjpdf/' . $value['id_jtugas']); ?>">
+                                        <td><a href="<?= base_url('gurukelasonline/viewjpdf/' . $value['id_jtugas']); ?>" target="_blank">
                                                 <span><embed><?= $value['nama_file'] ?></embed></span>
                                         </td>
                                         <td><?= $value['jam_tugas'] ?></td>
