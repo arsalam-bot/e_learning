@@ -35,6 +35,7 @@
                             <th>Password Siswa</th>
                             <th>Foto Siswa</th>
                             <th class="text-center">Level</th>
+                            <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
