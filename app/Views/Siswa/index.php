@@ -48,6 +48,20 @@
                                 <td><?= $value['password'] ?></td>
                                 <td class="text-center"><img src="<?= base_url('foto siswa/' . $value['foto']) ?>" class="img-profile rounded-circle" width="70px" height="70px"></td>
                                 <td class="text-center"><?= $value['level'] ?></td>
+                                <td>
+                                    <a href="<?= base_url('siswa/edit/' . $value['id_siswa']) ?>" class="btn btn-circle btn-sm btn-warning" type="button">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <button class="btn btn-circle btn-sm btn-danger" type="button" data-toggle="modal" data-target="#modalHapus<?= $value['id_siswa'] ?>">
+                                        <i class="fa fa-trash-alt"></i>
+                                    </button>
+                                    <!-- <button class="btn btn-info btn-icon-split" type="button">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-info-circle"></i>
+                                        </span>
+                                        <span class="text">Lihat Detail</span>
+                                    </button> -->
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
