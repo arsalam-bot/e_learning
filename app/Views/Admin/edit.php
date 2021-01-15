@@ -1,12 +1,13 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
+
     <!-- Basic Card Example -->
     <div class="row">
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
             <div class="card shadow mb-4 mt-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-b$guru text-success">Edit <?= $judul; ?></h6>
+                    <h6 class="m-0 font-weight-bold text-success">Edit <?= $judul; ?></h6>
                 </div>
                 <div class="card-body">
                     <?php if (session()->get('validationguruerror')) : ?>
