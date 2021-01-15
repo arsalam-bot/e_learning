@@ -17,7 +17,7 @@ class Admin extends BaseController
             'judul' => 'Data Admin',
             'admin' => $this->M_Admin->loadData(),
         ];
-        
+
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
@@ -30,7 +30,7 @@ class Admin extends BaseController
             'judul' => 'Data Admin',
             'admin' => $this->M_Admin->loadData(),
         ];
-        
+
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');

@@ -20,15 +20,12 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
-
         <!-- Divider -->
         <hr class="sidebar-divider">
-
         <!-- Heading -->
         <div class="sidebar-heading">
             Interface
         </div>
-
         <!-- Nav Item - Data Kelas Online -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?= base_url('kelasonline') ?>">
@@ -85,15 +82,12 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
-
         <!-- Divider -->
         <hr class="sidebar-divider">
-
         <!-- Heading -->
         <div class="sidebar-heading">
             Interface
         </div>
-
         <!-- Nav Item - Data Kelas Online -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?= base_url('kelasonline/kindex') ?>">
@@ -151,15 +145,12 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
-
         <!-- Divider -->
         <hr class="sidebar-divider">
-
         <!-- Heading -->
         <div class="sidebar-heading">
             Interface
         </div>
-
         <!-- Nav Item - Data Kelas Online -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?= base_url('gurukelasonline'); ?>">
@@ -175,15 +166,12 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
-
         <!-- Divider -->
         <hr class="sidebar-divider">
-
         <!-- Heading -->
         <div class="sidebar-heading">
             Interface
         </div>
-
         <!-- Nav Item - Data Kelas Online -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?= base_url('siswakelasonline'); ?>">

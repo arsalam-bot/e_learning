@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid"> 
     <div class="row mt-4"> <?php if($mykelas) :?>    
     <?php foreach ($mykelas as $mykelass) : ?>
             <div class="col-lg-3 my-2">

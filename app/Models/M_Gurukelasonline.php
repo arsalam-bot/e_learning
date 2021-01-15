@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-
+ 
 class M_Gurukelasonline extends Model
 {
     protected $table = 'materi';

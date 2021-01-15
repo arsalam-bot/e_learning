@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_Kelas;
-
+ 
 class Kelas extends BaseController
 {
     public function __construct()

@@ -1,17 +1,13 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-    <?php
-    if (session()->get('message')) :
-    ?>
+    <?php if (session()->get('message')) : ?>
         <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="close">
                 <span aria-hidden="true">&times;</span>
             </button>
             Data Kelas Online Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
         </div>
-    <?php
-    endif;
-    ?>
+    <?php endif; ?>
 
     <div class="row mt-4">
         <?php foreach ($gurukelasonline as $key => $value) { ?>

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\M_Auth;
-
+ 
 class Auth extends Controller
 {
     public function __construct()

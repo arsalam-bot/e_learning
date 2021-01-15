@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+ 
 use CodeIgniter\Model;
 
 class M_Siswakelasonline extends Model

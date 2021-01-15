@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_Guru;
-
+ 
 class Guru extends BaseController
 {
     public function __construct()

@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_Siswa;
-
+ 
 class Siswa extends BaseController
 {
     public function __construct()

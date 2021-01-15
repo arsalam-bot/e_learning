@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+ 
     <!-- Page Heading -->
     <div class="row mt-4">
         <?php foreach ($kelasonline as $key => $value) { ?>

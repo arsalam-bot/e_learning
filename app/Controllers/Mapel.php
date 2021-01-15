@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_Mapel;
-
+ 
 class Mapel extends BaseController
 {
     public function __construct()

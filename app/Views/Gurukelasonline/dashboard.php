@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid"> 
     <div class="row mt-4">
         <?php foreach ($gurukelasonline as $key => $value) { ?>
             <div class="col-lg-3 my-2">
