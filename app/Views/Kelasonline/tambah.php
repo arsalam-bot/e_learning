@@ -26,7 +26,8 @@
                         <select name="id_guru" class="form-control">
                             <option value="">--Tambah Guru--</option>
                             <?php foreach ($guru as $key => $value) { ?>
-                                <option value="<?= $value['id_guru'] ?>"><?= $value['id_guru'] ?> - <?= $value['nip'] ?> - <?= $value['nama_guru'] ?></option>
+                                <!-- <option value="<?= $value['id_guru'] ?>"><?= $value['id_guru'] ?> - <?= $value['nip'] ?> - <?= $value['nama_guru'] ?></option> -->
+                                <option value="<?= $value['id_guru'] ?>"><?= $value['nip'] ?> - <?= $value['nama_guru'] ?></option>
                             <?php } ?>
                         </select>
                     </div>

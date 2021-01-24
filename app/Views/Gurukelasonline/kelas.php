@@ -34,7 +34,7 @@
                         <i class="fa fa-trash-alt"></i>
                     </button>
                 <?php } else { ?>
-                    <a href="<?= base_url('gurukelasonline/viewpdf/' . $value['id_materi']); ?>">
+                    <a href="<?= base_url('gurukelasonline/viewpdf/' . $value['id_materi']); ?>" target="_blank">
                         <img src="<?= base_url('materi tugas/pdf.png'); ?>" id="gambar_load" width="40px">
                         <span><embed><?= $value['file_materi']; ?></embed></span>
                     </a><br />

@@ -30,7 +30,7 @@
                 <h6 class="mt-3"><?= $value['deskripsi']; ?></h6>
 
                 <?php if ($value['file_materi'] != "") { ?>
-                    <a href="<?= base_url('siswakelasonline/viewpdf/' . $value['id_materi']); ?>">
+                    <a href="<?= base_url('siswakelasonline/viewpdf/' . $value['id_materi']); ?>" target="_blank">
                         <img src="<?= base_url('materi tugas/pdf.png'); ?>" id="gambar_load" width="40px">
                         <?= $value['file_materi']; ?>
                     </a>

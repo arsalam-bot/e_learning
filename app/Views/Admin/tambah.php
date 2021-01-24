@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
- 
+
     <!-- Basic Card Example -->
     <div class="row">
         <div class="col-sm-3"></div>
@@ -18,29 +18,29 @@
                             <strong><?= session()->get('validationguruerror'); ?></strong>
                         </div>
                         <?= session()->remove('validationguruerror'); ?>
-                    <?php endif; ?> <?php
-                    echo form_open_multipart('admin/tambahadmin') ?>
+                    <?php endif; ?>
+
+                    <?php echo form_open_multipart('admin/tambahadmin') ?>
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" name="nama" id="nama" value="<?= old('nama') ?>" class="form-control" placeholder="Masukan Nama Lengkap">
+                    </div>
                     <div class="form-group mb-8">
                         <label>Username</label>
                         <input type="text" name="username" id="username" value="<?= old('username') ?>" class="form-control" placeholder="Masukan Username">
-
                     </div>
                     <div class="form-group">
                         <label>Password</label>
                         <input type="text" name="password" id="password" value="<?= old('password') ?>" class="form-control" placeholder="Masukan Password">
                     </div>
-                    <div class="form-group">
-                        <label>Nama Lengkap</label>
-                        <input type="text" name="nama" id="nama" value="<?= old('nama') ?>" class="form-control" placeholder="Masukan Nama Lengkap">
-                    </div>
                     <div class="form-group col-sm-2 mt-4">
-                            <label>Level</label>
-                            <select name="level" class="form-control">
-                                <option value="">--pilih--</option>
-                                <option id="level">Admin</option>
-                                <option id="level">Kepsek</option>
-                            </select>
-                        </div>
+                        <label>Level</label>
+                        <select name="level" class="form-control">
+                            <option value="">--pilih--</option>
+                            <option id="level">Admin</option>
+                            <option id="level">Kepsek</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label>Foto Admin</label>
                         <input type="file" name="foto" id="preview_gambar" value="<?= old('foto') ?>" class="form-control">

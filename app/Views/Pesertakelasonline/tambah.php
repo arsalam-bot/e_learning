@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
- 
+
     <!-- Basic Card Example -->
     <div class="row">
         <div class="col-sm-1"></div>
@@ -27,7 +27,8 @@
                         <select name="id_kelasonline" class="form-control">
                             <option value="">--Tambah Kelas Online--</option>
                             <?php foreach ($kelasonline as $key => $value) { ?>
-                                <option value="<?= $value['id_kelasonline'] ?>">Kelas Online - <?= $value['nama_mapel'] ?> - <?= $value['kelas'] ?></option>
+                                <option value="<?= $value['id_kelasonline'] ?>">Kelas Online <?= $value['nama_mapel'] ?> <?= $value['kelas'] ?> Oleh: <?= $value['nip'] ?> <?= $value['nama_guru'] ?></option>
+                                <!-- <option value="<?= $value['id_kelasonline'] ?>">Kelas Online - <?= $value['nama_mapel'] ?> - <?= $value['kelas'] ?></option> -->
                             <?php } ?>
                         </select>
                     </div>
@@ -36,7 +37,8 @@
                         <select name="id_siswa" class="form-control">
                             <option value="">--Tambah Siswa--</option>
                             <?php foreach ($siswa as $key => $value) { ?>
-                                <option value="<?= $value['id_siswa'] ?>"><?= $value['id_siswa'] ?> - <?= $value['nama_siswa'] ?></option>
+                                <option value="<?= $value['id_siswa'] ?>"><?= $value['nisn'] ?> - <?= $value['nama_siswa'] ?></option>
+                                <!-- <option value="<?= $value['id_siswa'] ?>"><?= $value['id_siswa'] ?> - <?= $value['nama_siswa'] ?></option> -->
                             <?php } ?>
                         </select>
                     </div>

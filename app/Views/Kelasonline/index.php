@@ -33,7 +33,7 @@
                         <?php foreach ($kelasonline as $key => $value) { ?>
                             <tr>
                                 <td><?= $value['id_kelasonline'] ?></td>
-                                <td><?= $value['nip'] ?> - <?= $value['nama_guru'] ?></td>
+                                <td><?= $value['nip'] ?> <?= $value['nama_guru'] ?></td>
                                 <td><?= $value['nama_mapel'] ?> - <?= $value['kelas'] ?></td>
                                 <td class="text-center"><img src="<?= base_url('foto kelas/' . $value['fotokelasonline']) ?>" class="img-profile rounded-circle" width="70px" height="70px"></td>
                                 <td>

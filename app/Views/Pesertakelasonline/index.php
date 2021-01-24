@@ -32,7 +32,7 @@
                         <?php foreach ($pesertakelasonline as $key => $value) { ?>
                             <tr>
                                 <!-- <td><?= $value['pesertakelasonline'] ?></td> -->
-                                <td><?= $value['nama_mapel'] ?> - <?= $value['kelas'] ?> - <?= $value['nama_guru'] ?></td>
+                                <td><?= $value['nama_mapel'] ?> <?= $value['kelas'] ?> Oleh: <?= $value['nama_guru'] ?></td>
                                 <td><?= $value['nama_siswa'] ?></td>
                                 <td>
                                     <button class="btn btn-circle btn-sm btn-danger" data-target="#modalHapus<?= $value['pesertakelasonline'] ?>" type="button" data-toggle="modal">
