@@ -22,7 +22,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Kode</th>
+                            <!-- <th>Kode</th> -->
                             <th>Nama Kelas Online</th>
                             <th>Nama Siswa</th>
                             <th>Keterangan</th>
@@ -31,7 +31,7 @@
                     <tbody>
                         <?php foreach ($pesertakelasonline as $key => $value) { ?>
                             <tr>
-                                <td><?= $value['pesertakelasonline'] ?></td>
+                                <!-- <td><?= $value['pesertakelasonline'] ?></td> -->
                                 <td><?= $value['nama_mapel'] ?> - <?= $value['kelas'] ?> - <?= $value['nama_guru'] ?></td>
                                 <td><?= $value['nama_siswa'] ?></td>
                                 <td>

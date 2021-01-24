@@ -26,7 +26,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Kode Guru</th>
+                            <!-- <th>Kode Guru</th> -->
                             <th>NIP</th>
                             <th>Nama Lengkap Guru</th>
                             <th>Tempat Tanggal Tahun Lahir</th>
@@ -34,7 +34,7 @@
                             <th>Pangkat / Golongan</th>
                             <th>Foto Guru</th>
                             <th>username</th>
-                            <th>Password</th>
+                            <!-- <th>Password</th> -->
                             <th>Level</th>
                             <th width="100px" class="text-center">Keterangan</th>
                         </tr>
@@ -42,7 +42,7 @@
                     <tbody>
                         <?php foreach ($guru as $key => $value) { ?>
                             <tr>
-                                <td><?= $value['id_guru'] ?></td>
+                                <!-- <td><?= $value['id_guru'] ?></td> -->
                                 <td><?= $value['nip'] ?></td>
                                 <td><?= $value['nama_guru'] ?></td>
                                 <td><?= $value['tttl'] ?></td>
@@ -50,7 +50,7 @@
                                 <td><?= $value['pangkatgol'] ?></td>
                                 <td class="text-center"><img src="<?= base_url('foto guru/' . $value['foto']) ?>" class="img-profile rounded-circle" width="70px" height="70px"></td>
                                 <td><?= $value['username'] ?></td>
-                                <td><?= $value['password'] ?></td>
+                                <!-- <td><?= $value['password'] ?></td> -->
                                 <td><?= $value['level'] ?></td>
                                 <td>
 

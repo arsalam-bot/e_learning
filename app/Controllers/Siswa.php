@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_Siswa;
- 
+
 class Siswa extends BaseController
 {
     public function __construct()
@@ -182,9 +182,9 @@ class Siswa extends BaseController
                 $this->M_Siswa->edit($data);
             } else {
                 $siswa = $this->M_Siswa->detailData($id);
-                if ($siswa['foto'] != "") {
-                    unlink('foto siswa/' . $siswa['foto']);
-                }
+                // if ($siswa['foto'] != "") {
+                //     unlink('foto siswa/' . $siswa['foto']);
+                // }
                 $nama_file = $foto->getClientName();
                 $data = [
                     'id_siswa' => $id,

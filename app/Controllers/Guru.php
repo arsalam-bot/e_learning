@@ -232,9 +232,9 @@ class Guru extends BaseController
                 $this->M_Guru->edit($data);
             } else {
                 $guru = $this->M_Guru->detailData($id);
-                if ($guru['foto'] != "") {
-                    unlink('foto guru/' . $guru['foto']);
-                }
+                // if ($guru['foto'] != "") {
+                //     unlink('foto guru/' . $guru['foto']);
+                // }
                 $nama_file = $foto->getClientName();
                 $data = [
                     'id_guru' => $id,
