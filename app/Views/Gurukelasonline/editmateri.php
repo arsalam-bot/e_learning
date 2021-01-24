@@ -10,9 +10,15 @@
                     <h6 class="m-0 font-weight-bold text-success">Edit <?= $judul; ?></h6>
                 </div>
                 <div class="card-body">
-                    <?php
-                    if (session()->get('validationguruerror')) :
-                    ?>
+                    <?php if (session()->get('message')) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            Materi Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (session()->get('validationguruerror')) : ?>
                         <div class="alert alert-danger alert-dismissible fade show p-0 pt-2" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="close">
                                 <span aria-hidden="true">&times;</span>
@@ -20,9 +26,7 @@
                             <strong><?= session()->get('validationguruerror'); ?></strong>
                         </div>
                         <? session()->remove('validationguruerror'); ?>
-                    <?php
-                    endif;
-                    ?>
+                    <?php endif; ?>
 
                     <?php echo form_open_multipart('gurukelasonline/editmaterikelas/' . $materi['id_materi']) ?>
                     <div class="form-group">
