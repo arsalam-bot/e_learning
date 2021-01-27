@@ -26,7 +26,7 @@
                 <div class="modal-footer">
                     <!-- <php if ($s['status'] == 'klik') : ?>
                     <php elseif ($s['status'] != 'klik') : ?> -->
-                    <button type="submit" class="btn btn-primary" id="tekan">Presensi</button>
+                    <button type="submit" class="btn btn-primary" id="tekan" onclick="this.disabled=true;document.getElementById('tekan').disabled=false;">Presensi</button>
                     <!-- <php endif; ?> -->
                 </div>
                 <?php echo form_close() ?>

@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid"> 
+<div class="container-fluid">
     <!-- Basic Card Example -->
     <div class="card shadow mb-4 mt-4">
         <div class="card-header py-3">
@@ -36,7 +36,7 @@
                     </a>
                 <?php } ?>
                 <div class="mt-2">
-                    <a href="<?= base_url('siswakelasonline/jtugas/' . $value['id_materi']); ?>" >Pengumpulan Tugas</a>
+                    <a href="<?= base_url('siswakelasonline/jtugas/' . $value['id_materi']); ?>">Pengumpulan Tugas</a>
                 </div>
                 <div class="mt-2" id="presensi">
                     <a href="<?= base_url('siswakelasonline/presensi/' . $value['id_materi']); ?>" target="_blank">Presensi</a>
