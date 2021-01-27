@@ -32,25 +32,22 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4"><b>E-Learning SMP Negeri 3 Bungku</b></h1>
                                     </div>
-                                    <?php if (session()->getFlashdata('msg')) : ?>
+                                    <!-- <?php if (session()->getFlashdata('msg')) : ?>
                                         <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
-                                    <?php endif; ?>
-                                    <form class="user mb-2" action="<?= base_url('auth/cek_login'); ?>" method="post">
-                                        <div class="form-group mb-3">
+                                    <?php endif; ?> -->
+                                    <!-- <form class="user mb-2" action="<?= base_url('auth/c'); ?>" method="post"> -->
+                                    <form class="user mb-2" method="post">
+                                        <!-- <div class="form-group mb-3">
                                             <input type="text" class="form-control form-control-user" name="username" id="username" placeholder="Masukan Username Anda">
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Masukan Password Anda">
-                                        </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block mt-5">
-                                            Login
-                                        </button>
+                                            Next
+                                        </button> -->
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control form-control-user" placeholder="Username" name="username" id="username">
+                                            <button class="btn btn-primary" type="submit">Next</button>
+                                        </div>
                                     </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <!-- <p class="small"><b> Lupa Password?</b> Silahkan hubungi bagian tata usaha</p> -->
-                                        <a href="<?= base_url('auth/p') ?>">Lupa Password?</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>

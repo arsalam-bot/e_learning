@@ -32,25 +32,28 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4"><b>E-Learning SMP Negeri 3 Bungku</b></h1>
                                     </div>
-                                    <?php if (session()->getFlashdata('msg')) : ?>
+                                    <!-- <?php if (session()->getFlashdata('msg')) : ?>
                                         <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
-                                    <?php endif; ?>
-                                    <form class="user mb-2" action="<?= base_url('auth/cek_login'); ?>" method="post">
-                                        <div class="form-group mb-3">
-                                            <input type="text" class="form-control form-control-user" name="username" id="username" placeholder="Masukan Username Anda">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Masukan Password Anda">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block mt-5">
-                                            Login
-                                        </button>
-                                    </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <!-- <p class="small"><b> Lupa Password?</b> Silahkan hubungi bagian tata usaha</p> -->
-                                        <a href="<?= base_url('auth/p') ?>">Lupa Password?</a>
+                                    <?php endif; ?> -->
+
+                                    <?php echo form_open_multipart('auth/c/' . $guru['username']) ?>
+                                    <div class="form-group">
+                                        <label>Nip</label><br>
+                                        <output><b><?= $siswa['nip'] ?></b></output>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Nama</label><br>
+                                        <output><b><?= $siswa['nama'] ?></b></output>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Username</label><br>
+                                        <output><b><?= $siswa['username'] ?></b></output>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label><br>
+                                        <output><b><?= $siswa['passwordguru'] ?></b></output>
+                                    </div>
+                                    <?php echo form_close() ?>
                                 </div>
                             </div>
                         </div>

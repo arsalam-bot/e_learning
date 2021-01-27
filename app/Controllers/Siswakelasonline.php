@@ -147,7 +147,8 @@ class Siswakelasonline extends BaseController
         $id_materi = session()->get('id_materi');
         $id_kelasonline = session()->get('id_kelasonline');
         $id_siswa = session()->get('id_siswa');
-        $presensi->presensi($created_at, $id_kelasonline, $id_materi, $id_siswa);
+        $s = ('klik');
+        $presensi->presensi($created_at, $id_kelasonline, $id_materi, $id_siswa, $s);
 
         session()->setFlashdata('message1', 'Presensi');
         return redirect()->to(base_url('siswakelasonline/kelas/' . $id_kelasonline));

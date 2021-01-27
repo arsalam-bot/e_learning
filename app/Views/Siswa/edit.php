@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
- 
+
     <!-- Basic Card Example -->
     <div class="row">
         <div class="col-sm-3"></div>
@@ -20,8 +20,7 @@
                         <?= session()->remove('validationguruerror'); ?>
                     <?php endif; ?>
 
-                    <?php
-                    echo form_open_multipart('siswa/editsiswa/' . $siswa['id_siswa']) ?>
+                    <?php echo form_open_multipart('siswa/editsiswa/' . $siswa['id_siswa']) ?>
                     <div class="form-group mb-8">
                         <label>NISN</label>
                         <input type="text" name="nisn" id="nisn" value="<?= (old('nisn')) ? old('nisn') : $siswa['nisn'] ?>" class="form-control" placeh$guruer="Masukan NISN">

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
- 
+
 use CodeIgniter\Model;
 
 class M_Auth extends Model
@@ -28,5 +28,25 @@ class M_Auth extends Model
             'username' => $email,
             'password' => $password,
         ])->get()->getRowArray();
+    }
+
+    // public function s_guru($username)
+    // {
+    //     $query = $this->db->query(
+    //     "SELECT nip AS nip, 
+    //     nama_guru AS nama,  
+    //     username AS username, 
+    //     password AS passwordguru 
+    //     FROM guru 
+    //     WHERE username = '$username'");
+    //     return $query->getRowArray();
+    // }
+
+    public function search($username)
+    {
+        // $builder = $this->table('admin');
+        // $builder->like('nama', $username);
+        // return $builder;
+        return $this->table('admin')->like('username', $username);
     }
 }

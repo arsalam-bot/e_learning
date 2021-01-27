@@ -4,12 +4,18 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\M_Auth;
- 
+use App\Models\M_Admin;
+use App\Models\M_Guru;
+use App\Models\M_Siswa;
+
 class Auth extends Controller
 {
     public function __construct()
     {
         helper('form');
+        $this->M_Guru = new M_Admin();
+        $this->M_Guru = new M_Guru();
+        $this->M_Siswa = new M_Siswa();
     }
 
     public function index()
@@ -22,7 +28,7 @@ class Auth extends Controller
 
     public function cek_login()
     {
-        $model = new M_auth();
+        $model = new M_Auth();
         $email = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
@@ -87,5 +93,32 @@ class Auth extends Controller
         session()->remove('username');
         session()->remove('level');
         return redirect()->to('login');
+    }
+
+    public function p()
+    {
+        $data = [
+            'judul' => 'Forgot Password',
+        ];
+        $model = new M_Auth();
+        $username = $this->request->getVar('username');
+        if ($username) {
+            $orang = $model->search($username);
+        } else {
+        }
+        echo view('p', $data);
+    }
+
+    public function c()
+    {
+        $data = [
+            'judul' => 'Forgot Password C',
+        ];
+        $username = $this->request->getVar('username');
+        if ($username) {
+            $orang = $this->M_Admin->search($username);
+        } else {
+        }
+        echo view('c', $data);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
- 
+
 use CodeIgniter\Model;
 
 class M_Admin extends Model
@@ -29,5 +29,17 @@ class M_Admin extends Model
     public function hapus($data)
     {
         return $this->db->table('admin')->where('id_admin', $data['id_admin'])->delete($data);
+    }
+
+    public function s_admin($username)
+    {
+        $query = $this->db->query(
+        "SELECT nip AS nip, 
+        nama_guru AS nama,  
+        username AS username, 
+        password AS passwordguru 
+        FROM guru 
+        WHERE username = '$username'");
+        return $query->getRowArray();
     }
 }

@@ -92,10 +92,10 @@ class M_Siswakelasonline extends Model
     }
 
 
-    public function presensi($created_at, $id_kelasonline, $id_materi, $id_siswa)
+    public function presensi($created_at, $id_kelasonline, $id_materi, $id_siswa, $s)
     {
-        $query = $this->db->query("INSERT INTO `presensi`(`id_kelasonline`, `id_materi`, `id_siswa`, `created_at`) 
-        VALUES ('$id_kelasonline','$id_materi','$id_siswa','$created_at')");
+        $query = $this->db->query("INSERT INTO `presensi`(`id_kelasonline`, `id_materi`, `id_siswa`, `created_at`, `s`) 
+        VALUES ('$id_kelasonline','$id_materi','$id_siswa','$created_at','$s')");
         return $query->getResultArray();
     }
 }

@@ -36,10 +36,10 @@
                     </a>
                 <?php } ?>
                 <div class="mt-2">
-                    <a href="<?= base_url('siswakelasonline/jtugas/' . $value['id_materi']); ?>">Pengumpulan Tugas</a>
+                    <a href="<?= base_url('siswakelasonline/jtugas/' . $value['id_materi']); ?>" >Pengumpulan Tugas</a>
                 </div>
-                <div class="mt-2">
-                    <a href="<?= base_url('siswakelasonline/presensi/' . $value['id_materi']); ?>">Presensi</a>
+                <div class="mt-2" id="presensi">
+                    <a href="<?= base_url('siswakelasonline/presensi/' . $value['id_materi']); ?>" target="_blank">Presensi</a>
                 </div>
                 <hr />
             <?php } ?>

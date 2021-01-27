@@ -208,7 +208,7 @@ class Siswa extends BaseController
     public function hapus($id)
     {
         $siswa = $this->M_Siswa->detailData($id);
-        if ($siswa['foto'] != "") {
+        if ($siswa['foto'] != "" && $siswa['foto'] == "" ) {
             unlink('foto siswa/' . $siswa['foto']);
         }
         $data = [
