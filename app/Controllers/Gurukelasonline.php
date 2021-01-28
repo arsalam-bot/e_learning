@@ -7,7 +7,7 @@ use App\Models\M_Kelasonline;
 use App\Models\M_Guru;
 use App\Models\M_Mapel;
 use App\Models\M_Kelas;
- 
+
 class Gurukelasonline extends BaseController
 {
     public function __construct()
@@ -40,6 +40,7 @@ class Gurukelasonline extends BaseController
             'judul' => 'Kelas Online',
             'gurukelasonline' => $this->M_Gurukelasonline->loadData(),
         ];
+
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
@@ -54,6 +55,7 @@ class Gurukelasonline extends BaseController
             'materi' => $this->M_Gurukelasonline->loadDataMateri($_id_kelasonline),
             'kelas' => $this->M_Gurukelasonline->loadDataKelas($_id_kelasonline),
         ];
+
         $data['id_kelasonline'] = $_id_kelasonline;
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
@@ -69,6 +71,7 @@ class Gurukelasonline extends BaseController
             'materi' => $this->M_Gurukelasonline->loadDataMateri($_id_kelasonline),
             'kelas' => $this->M_Gurukelasonline->loadDataKelas($_id_kelasonline),
         ];
+
         $data['id_kelasonline'] = $_id_kelasonline;
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
@@ -77,12 +80,14 @@ class Gurukelasonline extends BaseController
         echo view('templates/v_footer');
     }
 
-    public function tambahmateri()
+    public function tambahmateri($_id_kelasonline)
     {
         $data = [
             'judul' => 'Materi Kelas Online',
             'gurukelasonline' => $this->M_Gurukelasonline->loadData(),
         ];
+
+        session()->set('id_kelasonline', $_id_kelasonline);
 
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
@@ -93,6 +98,7 @@ class Gurukelasonline extends BaseController
 
     public function tambahmaterikelas()
     {
+        $id_kelasonline = session()->get('id_kelasonline');
         if ($this->validate([
             'id_kelasonline' => [
                 'label' => 'Kelas Online',
@@ -130,7 +136,7 @@ class Gurukelasonline extends BaseController
                 $file->move('materi tugas', $nama_file);
             }
             session()->setFlashdata('message', 'Di Tambahkan');
-            return redirect()->to(base_url('gurukelasonline/tambahmateri'));
+            return redirect()->to(base_url('gurukelasonline/kelas/' . $id_kelasonline));
         } else {
             session()->setFlashData('validationguruerror', \Config\Services::validation()->listErrors());
             return redirect()->to(base_url('gurukelasonline/tambahmateri'))->withInput();
@@ -153,12 +159,14 @@ class Gurukelasonline extends BaseController
 
     public function editmaterikelas($id)
     {
+        $materi = $this->M_Gurukelasonline->detailData($id);
         $file = $this->request->getFile('file');
         if ($file->getError() == 4) {
             $data = [
                 'id_materi' => $id,
                 'judul' => $this->request->getPost('judul'),
                 'deskripsi' => $this->request->getPost('deskripsi'),
+                // 'file' => '',
             ];
             $this->M_Gurukelasonline->edit($data);
         } else {
@@ -185,9 +193,10 @@ class Gurukelasonline extends BaseController
         $data = [
             'id_materi' => $id
         ];
-        $this->M_Kelasonline->hapus($data);
+
+        $this->M_Gurukelasonline->hapus($data);
         session()->setFlashdata('message', 'Di Hapus');
-        return redirect()->to(base_url('kelasonline'));
+        return redirect()->to(base_url('gurukelasonline/kelas/' . $id));
     }
 
     public function viewpdf($id)
@@ -218,6 +227,7 @@ class Gurukelasonline extends BaseController
             'judul' => 'Jawaban Tugas Kelas Online',
             'jawabantugas' => $this->M_Gurukelasonline->loadDataJawabanTugas($id_materinya),
         ];
+
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
@@ -231,6 +241,7 @@ class Gurukelasonline extends BaseController
             'judul' => 'Presensi Kelas Online',
             'presensi' => $this->M_Gurukelasonline->loadDataPresensi($id_presensinya),
         ];
+        
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');

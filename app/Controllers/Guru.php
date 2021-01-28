@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_Guru;
- 
+
 class Guru extends BaseController
 {
     public function __construct()
@@ -232,9 +232,6 @@ class Guru extends BaseController
                 $this->M_Guru->edit($data);
             } else {
                 $guru = $this->M_Guru->detailData($id);
-                // if ($guru['foto'] != "") {
-                //     unlink('foto guru/' . $guru['foto']);
-                // }
                 $nama_file = $foto->getClientName();
                 $data = [
                     'id_guru' => $id,

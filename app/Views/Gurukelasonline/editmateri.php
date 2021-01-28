@@ -42,7 +42,7 @@
                         <input type="file" name="file" id="preview_gambar" value="<?= old('file') ?>" class="form-control">
                     </div>
                     <div class="modal-footer">
-
+                        <a href="<?= base_url('gurukelasonline/kelas/' . $materi['id_kelasonline']) ?>" class="btn btn-secondary" data-dismiss="modal">Kembali</a>
                         <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                     <?php echo form_close() ?>

@@ -30,7 +30,7 @@
                     <a href="<?= base_url('gurukelasonline/edit/' . $value['id_materi']) ?>" class="btn btn-circle btn-sm btn-warning mt-3" type="button">
                         <i class="fa fa-edit"></i>
                     </a>
-                    <button class="btn btn-circle btn-sm btn-danger mt-3" type="button" data-toggle="modal" data-target="">
+                    <button class="btn btn-circle btn-sm btn-danger mt-3" type="button" data-toggle="modal" data-target="#modalHapus<?= $value['id_materi'] ?>">
                         <i class="fa fa-trash-alt"></i>
                     </button>
                 <?php } else { ?>
@@ -41,7 +41,7 @@
                     <a href="<?= base_url('gurukelasonline/edit/' . $value['id_materi']) ?>" class="btn btn-circle btn-sm btn-warning mt-3" type="button">
                         <i class="fa fa-edit"></i>
                     </a>
-                    <button class="btn btn-circle btn-sm btn-danger mt-3" type="button" data-toggle="modal" data-target="">
+                    <button class="btn btn-circle btn-sm btn-danger mt-3" type="button" data-toggle="modal" data-target="#modalHapus<?= $value['id_materi'] ?>">
                         <i class="fa fa-trash-alt"></i>
                     </button><br>
                 <?php } ?>
@@ -67,7 +67,7 @@
 
 <!-- Function to Hapus Data -->
 <?php foreach ($materi as $key => $value) { ?>
-    <div class="modal fade " id="modalHapus<?= $value['id_kelasonline'] ?>">
+    <div class="modal fade " id="modalHapus<?= $value['id_materi'] ?>">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -77,11 +77,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Yakin Hapus Data Materi?
+                    Yakin Hapus Data Materi <b><?= $value['judul'] ?></b>?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="<? base_url('gurukelasonline/hapus/' . $materi['id_kelasonline']) ?>" class="btn btn-primary">Hapus</a>
+                    <a href="<?= base_url('gurukelasonline/hapus/' . $value['id_materi']) ?>" class="btn btn-primary">Hapus</a>
                 </div>
                 </form>
             </div>

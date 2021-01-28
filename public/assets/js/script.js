@@ -16,18 +16,18 @@
 //     return true;
 // })
 
-$(document).ready(function(){
-    $("#presensi").click(function(){
-        // $("#presensi").hide();
-        $("#presensi").attr('hidden',true);
-        $("#presensi").attr('disabled',true);
-    });
-});
-$(document).ready(function(){
-    $("#tekan").click(function(){
-        window.self.close();
-    });
-});
+// $(document).ready(function(){
+//     $("#presensi").click(function(){
+//         // $("#presensi").hide();
+//         $("#presensi").attr('hidden',true);
+//         $("#presensi").attr('disabled',true);
+//     });
+// });
+// $(document).ready(function(){
+//     $("#tekan").click(function(){
+//         window.self.close();
+//     });
+// });
 
 // $(document).ready(function () {
 //     $("#tekan").submit(function (e) {
