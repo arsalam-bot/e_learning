@@ -72,6 +72,7 @@ class Auth extends Controller
             session()->set('level', $cek_siswa['level']);
             session()->set('nama_siswa', $cek_siswa['nama_siswa']);
             session()->set('foto', $cek_siswa['foto']);
+            session()->set('id', $cek_siswa['id_siswa']);
             //redirect data
             if (session()->get('level') == "Siswa") {
                 return redirect()->to(base_url('/home'));
@@ -95,30 +96,22 @@ class Auth extends Controller
         return redirect()->to('login');
     }
 
-    public function p()
+    public function cari()
     {
         $data = [
             'judul' => 'Forgot Password',
         ];
-        $model = new M_Auth();
-        $username = $this->request->getVar('username');
-        if ($username) {
-            $orang = $model->search($username);
-        } else {
-        }
         echo view('p', $data);
     }
 
     public function c()
     {
-        $data = [
-            'judul' => 'Forgot Password C',
-        ];
+        $modelnew = new M_Auth();
         $username = $this->request->getVar('username');
-        if ($username) {
-            $orang = $this->M_Admin->search($username);
-        } else {
-        }
+        $data = [
+            'judul' => 'Forgot Password',
+            'siswa' => $modelnew->search($username),
+        ];
         echo view('c', $data);
     }
 }

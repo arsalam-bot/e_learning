@@ -44,9 +44,8 @@ class M_Auth extends Model
 
     public function search($username)
     {
-        // $builder = $this->table('admin');
-        // $builder->like('nama', $username);
-        // return $builder;
-        return $this->table('admin')->like('username', $username);
+        $query = $this->db->query("SELECT nip, nama_guru, password, username FROM guru WHERE username='$username'");
+
+        return $query->getRowArray();
     }
 }

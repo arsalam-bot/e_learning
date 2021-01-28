@@ -8,7 +8,7 @@ use App\Models\M_Guru;
 use App\Models\M_Siswa;
 use App\Models\M_Mapel;
 use App\Models\M_Kelas;
- 
+
 use CodeIgniter\I18n\Time;
 
 class Siswakelasonline extends BaseController
@@ -62,6 +62,7 @@ class Siswakelasonline extends BaseController
 
     public function kelas($_id_kelasonline)
     {
+        $id = session()->get('username');
         $data = [
             'judul' => 'Kelas Online',
             'materi' => $this->M_Siswakelasonline->loadDataMateri($_id_kelasonline),
@@ -125,8 +126,10 @@ class Siswakelasonline extends BaseController
 
     public function presensi($id_materi)
     {
+        $id_siswa = session()->get('id');
         $data = [
             'judul' => 'Presensi Kelas Online',
+            'presensi' => $this->M_Siswakelasonline->loadDataPresensi($id_materi, $id_siswa),
         ];
         session()->set('id_materi', $id_materi);
 
@@ -147,8 +150,7 @@ class Siswakelasonline extends BaseController
         $id_materi = session()->get('id_materi');
         $id_kelasonline = session()->get('id_kelasonline');
         $id_siswa = session()->get('id_siswa');
-        $s = ('klik');
-        $presensi->presensi($created_at, $id_kelasonline, $id_materi, $id_siswa, $s);
+        $presensi->presensi($created_at, $id_kelasonline, $id_materi, $id_siswa);
 
         session()->setFlashdata('message1', 'Presensi');
         return redirect()->to(base_url('siswakelasonline/kelas/' . $id_kelasonline));

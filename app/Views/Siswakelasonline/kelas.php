@@ -25,7 +25,8 @@
                 </div>
             <?php endif; ?>
             <?php
-            foreach ($materi as $key => $value) { ?>
+            foreach ($materi as $key => $value) {
+            ?>
                 <h5 class="m-0 font-weight-bold text-info"><?= $value['judul']; ?></h5>
                 <h6 class="mt-3"><?= $value['deskripsi']; ?></h6>
 
@@ -38,11 +39,14 @@
                 <div class="mt-2">
                     <a href="<?= base_url('siswakelasonline/jtugas/' . $value['id_materi']); ?>">Pengumpulan Tugas</a>
                 </div>
+
                 <div class="mt-2" id="presensi">
-                    <a href="<?= base_url('siswakelasonline/presensi/' . $value['id_materi']); ?>" target="_blank">Presensi</a>
+                    <a href="<?= base_url('siswakelasonline/presensi/' . $value['id_materi']); ?>">Presensi</a>
                 </div>
+
                 <hr />
-            <?php } ?>
+            <?php
+            } ?>
             <div class="modal-footer">
                 <a href="<?= base_url('siswakelasonline') ?>" class="btn btn-secondary" data-dismiss="modal">Kembali</a>
             </div>

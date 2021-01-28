@@ -17,18 +17,17 @@
                             Presensi Berhasil <strong><?= session()->getFlashdata('message'); ?></strong>
                         </div>
                     <?php endif; ?>
-
                     <?php echo form_open_multipart('siswakelasonline/tambahpresensi/') ?>
                     <div class="form-group">
                         <label>Tekan Tombol "Presensi" Untuk Presensi</label>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <!-- <php if ($s['status'] == 'klik') : ?>
-                    <php elseif ($s['status'] != 'klik') : ?> -->
-                    <button type="submit" class="btn btn-primary" id="tekan" onclick="this.disabled=true;document.getElementById('tekan').disabled=false;">Presensi</button>
-                    <!-- <php endif; ?> -->
-                </div>
+
+                <?php if (!isset($presensi['stat'])) { ?>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="tekan">Presensi</button>
+                    </div>
+                <?php } ?>
                 <?php echo form_close() ?>
             </div>
         </div>

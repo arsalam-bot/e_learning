@@ -32,19 +32,10 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4"><b>E-Learning SMP Negeri 3 Bungku</b></h1>
                                     </div>
-                                    <!-- <?php if (session()->getFlashdata('msg')) : ?>
-                                        <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
-                                    <?php endif; ?> -->
-                                    <!-- <form class="user mb-2" action="<?= base_url('auth/c'); ?>" method="post"> -->
-                                    <form class="user mb-2" method="post">
-                                        <!-- <div class="form-group mb-3">
-                                            <input type="text" class="form-control form-control-user" name="username" id="username" placeholder="Masukan Username Anda">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block mt-5">
-                                            Next
-                                        </button> -->
+
+                                    <form class="user mb-2" action="<?= base_url('auth/c'); ?>" method="post">
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control form-control-user" placeholder="Username" name="username" id="username">
+                                            <input type="text" class="form-control form-control-user" placeholder="Username" name="username">
                                             <button class="btn btn-primary" type="submit">Next</button>
                                         </div>
                                     </form>

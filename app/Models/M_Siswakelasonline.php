@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
- 
+
 use CodeIgniter\Model;
 
 class M_Siswakelasonline extends Model
@@ -57,6 +57,15 @@ class M_Siswakelasonline extends Model
         return $query->getResultArray();
     }
 
+    public function loadDataPresensi($id_materi, $id_siswa)
+    {
+        $query = $this->db->query('SELECT presensi.status as stat FROM presensi 
+        JOIN materi 
+        ON presensi.id_materi=materi.id_materi 
+        WHERE presensi.id_materi= ' . $id_materi . ' AND presensi.id_siswa =' . $id_siswa);
+        return $query->getRowArray();
+    }
+
     public function loadDataKelas($_id_kelasonline)
     {
         $query = $this->db->query('SELECT k.id_kelasonline AS id_kelasonline,        
@@ -92,10 +101,10 @@ class M_Siswakelasonline extends Model
     }
 
 
-    public function presensi($created_at, $id_kelasonline, $id_materi, $id_siswa, $s)
+    public function presensi($created_at, $id_kelasonline, $id_materi, $id_siswa)
     {
-        $query = $this->db->query("INSERT INTO `presensi`(`id_kelasonline`, `id_materi`, `id_siswa`, `created_at`, `s`) 
-        VALUES ('$id_kelasonline','$id_materi','$id_siswa','$created_at','$s')");
+        $query = $this->db->query("INSERT INTO presensi(id_kelasonline, id_siswa, id_materi, created_at, status) 
+        VALUES ('$id_kelasonline','$id_siswa','$id_materi','$created_at','1')");
         return $query->getResultArray();
     }
 }

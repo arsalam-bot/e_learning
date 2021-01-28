@@ -36,14 +36,13 @@
                                         <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
                                     <?php endif; ?> -->
 
-                                    <?php echo form_open_multipart('auth/c/' . $guru['username']) ?>
                                     <div class="form-group">
                                         <label>Nip</label><br>
                                         <output><b><?= $siswa['nip'] ?></b></output>
                                     </div>
                                     <div class="form-group">
                                         <label>Nama</label><br>
-                                        <output><b><?= $siswa['nama'] ?></b></output>
+                                        <output><b><?= $siswa['nama_guru'] ?></b></output>
                                     </div>
                                     <div class="form-group">
                                         <label>Username</label><br>
@@ -51,7 +50,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Password</label><br>
-                                        <output><b><?= $siswa['passwordguru'] ?></b></output>
+                                        <output><b><?= $siswa['password'] ?></b></output>
                                     </div>
                                     <?php echo form_close() ?>
                                 </div>
