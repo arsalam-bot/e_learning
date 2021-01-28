@@ -30,21 +30,21 @@ class M_Auth extends Model
         ])->get()->getRowArray();
     }
 
-    // public function s_guru($username)
-    // {
-    //     $query = $this->db->query(
-    //     "SELECT nip AS nip, 
-    //     nama_guru AS nama,  
-    //     username AS username, 
-    //     password AS passwordguru 
-    //     FROM guru 
-    //     WHERE username = '$username'");
-    //     return $query->getRowArray();
-    // }
-
     public function search($username)
     {
         $query = $this->db->query("SELECT nip, nama_guru, password, username FROM guru WHERE username='$username'");
+
+        return $query->getRowArray();
+    }
+    public function searchS($usernameS)
+    {
+        $query = $this->db->query("SELECT nisn, nama_siswa, password, username FROM siswa WHERE username='$usernameS'");
+
+        return $query->getRowArray();
+    }
+    public function searchA($usernameA)
+    {
+        $query = $this->db->query("SELECT nama, password, username FROM admin WHERE username='$usernameA'");
 
         return $query->getRowArray();
     }

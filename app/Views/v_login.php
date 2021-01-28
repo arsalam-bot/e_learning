@@ -48,8 +48,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <!-- <p class="small"><b> Lupa Password?</b> Silahkan hubungi bagian tata usaha</p> -->
-                                        <a href="<?= base_url('auth/cari') ?>">Lupa Password?</a>
+                                        <a href="<?= base_url('auth/cek') ?>">Lupa Password?</a>
                                     </div>
                                 </div>
                             </div>
@@ -69,3 +68,4 @@
 </body>
 
 </html>
+<!-- <p class="small"><b> Lupa Password?</b> Silahkan hubungi bagian tata usaha</p> -->

@@ -96,6 +96,21 @@ class Auth extends Controller
         return redirect()->to('login');
     }
 
+    public function cek()
+    {
+        $data = [
+            'judul' => 'Forgot Password',
+        ];
+        echo view('s', $data);
+    }
+
+    public function cai()
+    {
+        $data = [
+            'judul' => 'Forgot Password',
+        ];
+        echo view('pa', $data);
+    }
     public function cari()
     {
         $data = [
@@ -104,14 +119,42 @@ class Auth extends Controller
         echo view('p', $data);
     }
 
+    public function car()
+    {
+        $data = [
+            'judul' => 'Forgot Password',
+        ];
+        echo view('pac', $data);
+    }
+
     public function c()
     {
         $modelnew = new M_Auth();
         $username = $this->request->getVar('username');
         $data = [
             'judul' => 'Forgot Password',
-            'siswa' => $modelnew->search($username),
+            'guru' => $modelnew->search($username),
         ];
         echo view('c', $data);
+    }
+    public function ca()
+    {
+        $modelnew = new M_Auth();
+        $usernameS = $this->request->getVar('username');
+        $data = [
+            'judul' => 'Forgot Password',
+            'siswa' => $modelnew->searchS($usernameS),
+        ];
+        echo view('ca', $data);
+    }
+    public function cat()
+    {
+        $modelnew = new M_Auth();
+        $usernameA = $this->request->getVar('username');
+        $data = [
+            'judul' => 'Forgot Password',
+            'admin' => $modelnew->searchA($usernameA),
+        ];
+        echo view('cat', $data);
     }
 }

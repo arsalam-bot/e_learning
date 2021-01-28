@@ -33,20 +33,20 @@
                                         <h1 class="h4 text-gray-900 mb-4"><b>E-Learning SMP Negeri 3 Bungku</b></h1>
                                     </div>
                                     <div class="form-group">
-                                        <label>Nip</label><br>
-                                        <output><b><?= $guru['nip'] ?></b></output>
+                                        <label>Nisn</label><br>
+                                        <output><b><?= $siswa['nisn'] ?></b></output>
                                     </div>
                                     <div class="form-group">
                                         <label>Nama</label><br>
-                                        <output><b><?= $guru['nama_guru'] ?></b></output>
+                                        <output><b><?= $siswa['nama_siswa'] ?></b></output>
                                     </div>
                                     <div class="form-group">
                                         <label>Username</label><br>
-                                        <output><b><?= $guru['username'] ?></b></output>
+                                        <output><b><?= $siswa['username'] ?></b></output>
                                     </div>
                                     <div class="form-group">
                                         <label>Password</label><br>
-                                        <output><b><?= $guru['password'] ?></b></output>
+                                        <output><b><?= $siswa['password'] ?></b></output>
                                     </div>
                                     <div class="input-group mb-3">
                                         <a href="<?= base_url('auth') ?>" class="btn btn-primary">

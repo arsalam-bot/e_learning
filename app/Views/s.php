@@ -32,28 +32,9 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4"><b>E-Learning SMP Negeri 3 Bungku</b></h1>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Nip</label><br>
-                                        <output><b><?= $guru['nip'] ?></b></output>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Nama</label><br>
-                                        <output><b><?= $guru['nama_guru'] ?></b></output>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Username</label><br>
-                                        <output><b><?= $guru['username'] ?></b></output>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Password</label><br>
-                                        <output><b><?= $guru['password'] ?></b></output>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <a href="<?= base_url('auth') ?>" class="btn btn-primary">
-                                            <span class="text">Next</span>
-                                        </a>
-                                    </div>
-                                    <?php echo form_close() ?>
+                                    <a href="<?= base_url('auth/cari') ?>">Cek Sebagai Guru</a><br>
+                                    <a href="<?= base_url('auth/cai') ?>">Cek Sebagai Siswa</a><br>
+                                    <a href="<?= base_url('auth/car') ?>">Cek Sebagai Admin</a><br>
                                 </div>
                             </div>
                         </div>
@@ -72,3 +53,9 @@
 </body>
 
 </html>
+<!-- <form class="user mb-2" action="<?= base_url('auth/c'); ?>" method="post">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control form-control-user" placeholder="Username" name="username">
+        <button class="btn btn-primary" type="submit">Next</button>
+    </div>
+</form> -->
