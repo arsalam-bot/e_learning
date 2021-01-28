@@ -36,7 +36,7 @@
                                     <form class="user mb-2" action="<?= base_url('auth/cat'); ?>" method="post">
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control form-control-user" placeholder="Username" name="username">
-                                            <button class="btn btn-primary" type="submit">Next</button>
+                                            <button class="btn btn-primary" type="submit">Login</button>
                                         </div>
                                     </form>
                                 </div>
