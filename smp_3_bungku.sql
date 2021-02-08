@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2021 at 05:02 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Waktu pembuatan: 08 Feb 2021 pada 13.51
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,22 +37,22 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama`, `foto`, `level`) VALUES
 (1, 'admin@smp3.com', '123456', 'Kato Megumi', 'Ririka crop.jpg', 'Admin'),
-(7, 'sulaeman@smp3.com', '123456', 'Sulaeman, M.Kom., P.hd', 'sulaeman.jpg', 'Kepsek');
+(8, 'aswa@smp3.com', '123456', 'Drs. Aswawarman Launu, MM', 'sulaeman.jpg', 'Kepsek');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `guru`
+-- Struktur dari tabel `guru`
 --
 
 CREATE TABLE `guru` (
   `id_guru` int(11) NOT NULL,
-  `nip` int(20) NOT NULL,
+  `nip` varchar(30) NOT NULL,
   `nama_guru` varchar(64) NOT NULL,
   `tttl` varchar(75) NOT NULL,
   `jabatan` varchar(50) NOT NULL,
@@ -64,22 +64,17 @@ CREATE TABLE `guru` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `guru`
+-- Dumping data untuk tabel `guru`
 --
 
 INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `tttl`, `jabatan`, `pangkatgol`, `foto`, `username`, `password`, `level`) VALUES
-(1, 1999003, 'Udin S', 'Bungku, 21 Juni 2020', 'Kepala Sekolah', 'Pembina Tkt. I, IV/b', 'sulaeman.jpg', 'udin@smp3.com', '123456', 'Guru'),
-(2, 1999004, 'Uchiha Madara', 'Yogyakarta, 2 Januari 202', 'guru', 'Pembina, IV/a', 'madara.jpg', 'madara@smp3.com', '123456', 'Guru'),
-(3, 1999005, 'Sasuke', 'Konoha Gakure, 3 Januari 2020', 'guru', 'Pembina, IV/a', 'foto 3.jpg', 'sasuke@smp3.com', '123456', 'Guru'),
-(4, 1999006, 'Uchiha Itachi', 'Konoha Gakure, 4 Januari 2020', 'guru', 'Pembina, IV/a', 'fotoo 3.png', 'itachi@smp3.com', '123456', 'Guru'),
-(5, 1999007, 'Sakura', 'Suna Gakure, 5 Januari 2020', 'guru', 'Penata Tkt.I, III/d', 'foto 4.jpg', 'sakura@smp3.com', '123456', 'Guru'),
-(6, 1999008, 'Sarada', 'Oto Gakure, 6 Januari 2020', 'guru', 'Penata Tkt.I, III/d', 'fotoo 4.png', 'sarada@smp3.com', '123456', 'Guru'),
-(7, 1999011, 'Obito', 'Kirigakure, 7 Januari 2020', 'tata usaha', 'Penata Tkt.I, III/d', 'foto 5.jpg', 'obito@smp3.com', '123456', 'Guru');
+(9, '196207141989031012', 'Drs. Aswawarman Launu, MM', 'Unsongi, 14 Juli 1962', 'Kepala Sekolah', 'Pembina Tkt.1 / IVb', 'sulaeman.jpg', 'aswawarman@smp3.com', '123456', 'Guru'),
+(10, '196301031987032008', 'Mutimun Muh. Ilyas, S.Pdi', 'Ipi, 03 Januari 1963', 'Urusan Humas', 'Pembina,  IV/a', 'mutimun.jfif', 'mutimun@smp3.com', '123456', 'Guru');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `j_tugas`
+-- Struktur dari tabel `j_tugas`
 --
 
 CREATE TABLE `j_tugas` (
@@ -92,16 +87,17 @@ CREATE TABLE `j_tugas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `j_tugas`
+-- Dumping data untuk tabel `j_tugas`
 --
 
 INSERT INTO `j_tugas` (`id_jtugas`, `id_kelasonline`, `id_materi`, `id_siswa`, `file`, `created_at`) VALUES
-(1, 1, 85, 1, '7.0 Menilai Kelayakan Usaha.pdf', '2021-01-10 12:01:23.000000');
+(5, 3, 90, 6, 'Screenshot (59).png', '2021-01-29 00:45:23.000000'),
+(6, 3, 90, 6, 'Screenshot (52).png', '2021-01-29 01:05:49.000000');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelas`
+-- Struktur dari tabel `kelas`
 --
 
 CREATE TABLE `kelas` (
@@ -110,7 +106,7 @@ CREATE TABLE `kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kelas`
+-- Dumping data untuk tabel `kelas`
 --
 
 INSERT INTO `kelas` (`id_kelas`, `kelas`) VALUES
@@ -124,7 +120,7 @@ INSERT INTO `kelas` (`id_kelas`, `kelas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelasonline`
+-- Struktur dari tabel `kelasonline`
 --
 
 CREATE TABLE `kelasonline` (
@@ -136,17 +132,16 @@ CREATE TABLE `kelasonline` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kelasonline`
+-- Dumping data untuk tabel `kelasonline`
 --
 
 INSERT INTO `kelasonline` (`id_kelasonline`, `id_mapel`, `id_kelas`, `id_guru`, `fotokelasonline`) VALUES
-(1, 1, 6, 2, 'kelas 9 B.png'),
-(2, 1, 4, 2, 'kelas 8 B.png');
+(3, 1, 2, 10, 'kelas 7 C.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mapel`
+-- Struktur dari tabel `mapel`
 --
 
 CREATE TABLE `mapel` (
@@ -155,7 +150,7 @@ CREATE TABLE `mapel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `mapel`
+-- Dumping data untuk tabel `mapel`
 --
 
 INSERT INTO `mapel` (`id_mapel`, `nama_mapel`) VALUES
@@ -173,7 +168,7 @@ INSERT INTO `mapel` (`id_mapel`, `nama_mapel`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materi`
+-- Struktur dari tabel `materi`
 --
 
 CREATE TABLE `materi` (
@@ -185,16 +180,18 @@ CREATE TABLE `materi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `materi`
+-- Dumping data untuk tabel `materi`
 --
 
 INSERT INTO `materi` (`id_materi`, `id_kelasonline`, `judul`, `deskripsi`, `file`) VALUES
-(85, 1, 'Pertemuan 1', 'Baca dan Kerjakan Tugas pada file dibawah. batas waktu pengumpulan jawaban tugas 06 januari jam 12.00', '5_6316835988249248187.pdf');
+(90, 3, 'Topik 1', 'tes edit woy hahahahahahahahaha', '94.pdf'),
+(91, 3, 'Topik 2', '', NULL),
+(92, 3, 'Topik 3', 'aaaaaaaaa', 'DFD Level 2 Proses 2.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesertakelasonline`
+-- Struktur dari tabel `pesertakelasonline`
 --
 
 CREATE TABLE `pesertakelasonline` (
@@ -204,19 +201,16 @@ CREATE TABLE `pesertakelasonline` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pesertakelasonline`
+-- Dumping data untuk tabel `pesertakelasonline`
 --
 
 INSERT INTO `pesertakelasonline` (`id_pesertakelasonline`, `id_kelasonline`, `id_siswa`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 2, 3),
-(4, 2, 4);
+(5, 3, 6);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `presensi`
+-- Struktur dari tabel `presensi`
 --
 
 CREATE TABLE `presensi` (
@@ -224,20 +218,22 @@ CREATE TABLE `presensi` (
   `id_kelasonline` int(11) NOT NULL,
   `id_siswa` int(11) NOT NULL,
   `id_materi` int(11) NOT NULL,
-  `created_at` datetime NOT NULL
+  `created_at` datetime NOT NULL,
+  `status` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `presensi`
+-- Dumping data untuk tabel `presensi`
 --
 
-INSERT INTO `presensi` (`id_presensi`, `id_kelasonline`, `id_siswa`, `id_materi`, `created_at`) VALUES
-(1, 1, 1, 85, '2021-01-10 12:27:55');
+INSERT INTO `presensi` (`id_presensi`, `id_kelasonline`, `id_siswa`, `id_materi`, `created_at`, `status`) VALUES
+(77, 3, 6, 90, '2021-01-29 00:45:26', '1'),
+(78, 3, 6, 91, '2021-01-29 00:46:10', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siswa`
+-- Struktur dari tabel `siswa`
 --
 
 CREATE TABLE `siswa` (
@@ -252,33 +248,30 @@ CREATE TABLE `siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `siswa`
+-- Dumping data untuk tabel `siswa`
 --
 
 INSERT INTO `siswa` (`id_siswa`, `nisn`, `nama_siswa`, `tttl`, `username`, `password`, `foto`, `level`) VALUES
-(1, '2020001', 'Arsalam Launu', 'Bungku, 21 Juni 2077', 'arsalam@smp3.com', '123456', 'ala.jpg', 'Siswa'),
-(2, '2020002', 'Aki Tomoya', 'Kirigakure, 15 April 2077', 'tomoya@smp3.com', '123456', 'aki.jpg', 'Siswa'),
-(3, '2020003', 'Kanda Sorata', 'Bungku, 21 Juni 2077', 'kanda@smp3.com', '123456', 'foto 2.jpg', 'Siswa'),
-(4, '2020004', 'Sawamura Eriri', 'Tokyo, 30 Februari 2020', 'sawamura@smp3.com', '123456', 'fotoo 2.png', 'Siswa');
+(6, '20200001', 'Abdul Idil', 'Konohagakure, 17 Mei 2006', 'idil@smp3.com', '123456', 'aki.jpg', 'Siswa');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `guru`
+-- Indeks untuk tabel `guru`
 --
 ALTER TABLE `guru`
   ADD PRIMARY KEY (`id_guru`);
 
 --
--- Indexes for table `j_tugas`
+-- Indeks untuk tabel `j_tugas`
 --
 ALTER TABLE `j_tugas`
   ADD PRIMARY KEY (`id_jtugas`),
@@ -287,13 +280,13 @@ ALTER TABLE `j_tugas`
   ADD KEY `fk_jtugas_siswa` (`id_siswa`);
 
 --
--- Indexes for table `kelas`
+-- Indeks untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`);
 
 --
--- Indexes for table `kelasonline`
+-- Indeks untuk tabel `kelasonline`
 --
 ALTER TABLE `kelasonline`
   ADD PRIMARY KEY (`id_kelasonline`),
@@ -302,20 +295,20 @@ ALTER TABLE `kelasonline`
   ADD KEY `fk_kelasonline_guru` (`id_guru`);
 
 --
--- Indexes for table `mapel`
+-- Indeks untuk tabel `mapel`
 --
 ALTER TABLE `mapel`
   ADD PRIMARY KEY (`id_mapel`);
 
 --
--- Indexes for table `materi`
+-- Indeks untuk tabel `materi`
 --
 ALTER TABLE `materi`
   ADD PRIMARY KEY (`id_materi`),
   ADD KEY `fk_materi_kelasonline` (`id_kelasonline`);
 
 --
--- Indexes for table `pesertakelasonline`
+-- Indeks untuk tabel `pesertakelasonline`
 --
 ALTER TABLE `pesertakelasonline`
   ADD PRIMARY KEY (`id_pesertakelasonline`),
@@ -323,7 +316,7 @@ ALTER TABLE `pesertakelasonline`
   ADD KEY `fk_pesertakelasonline_id_siswa` (`id_siswa`);
 
 --
--- Indexes for table `presensi`
+-- Indeks untuk tabel `presensi`
 --
 ALTER TABLE `presensi`
   ADD PRIMARY KEY (`id_presensi`),
@@ -332,81 +325,81 @@ ALTER TABLE `presensi`
   ADD KEY `fk_presensi_siswa` (`id_siswa`);
 
 --
--- Indexes for table `siswa`
+-- Indeks untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`id_siswa`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `guru`
+-- AUTO_INCREMENT untuk tabel `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `j_tugas`
+-- AUTO_INCREMENT untuk tabel `j_tugas`
 --
 ALTER TABLE `j_tugas`
-  MODIFY `id_jtugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_jtugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `kelas`
+-- AUTO_INCREMENT untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
   MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `kelasonline`
+-- AUTO_INCREMENT untuk tabel `kelasonline`
 --
 ALTER TABLE `kelasonline`
-  MODIFY `id_kelasonline` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kelasonline` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `mapel`
+-- AUTO_INCREMENT untuk tabel `mapel`
 --
 ALTER TABLE `mapel`
   MODIFY `id_mapel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `materi`
+-- AUTO_INCREMENT untuk tabel `materi`
 --
 ALTER TABLE `materi`
-  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
--- AUTO_INCREMENT for table `pesertakelasonline`
+-- AUTO_INCREMENT untuk tabel `pesertakelasonline`
 --
 ALTER TABLE `pesertakelasonline`
-  MODIFY `id_pesertakelasonline` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pesertakelasonline` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `presensi`
+-- AUTO_INCREMENT untuk tabel `presensi`
 --
 ALTER TABLE `presensi`
-  MODIFY `id_presensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_presensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
--- AUTO_INCREMENT for table `siswa`
+-- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `j_tugas`
+-- Ketidakleluasaan untuk tabel `j_tugas`
 --
 ALTER TABLE `j_tugas`
   ADD CONSTRAINT `fk_jtugas_kelasonline` FOREIGN KEY (`id_kelasonline`) REFERENCES `kelasonline` (`id_kelasonline`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -414,7 +407,7 @@ ALTER TABLE `j_tugas`
   ADD CONSTRAINT `fk_jtugas_siswa` FOREIGN KEY (`id_siswa`) REFERENCES `siswa` (`id_siswa`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `kelasonline`
+-- Ketidakleluasaan untuk tabel `kelasonline`
 --
 ALTER TABLE `kelasonline`
   ADD CONSTRAINT `fk_kelasonline_guru` FOREIGN KEY (`id_guru`) REFERENCES `guru` (`id_guru`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -422,20 +415,20 @@ ALTER TABLE `kelasonline`
   ADD CONSTRAINT `fk_kelasonline_mapel` FOREIGN KEY (`id_mapel`) REFERENCES `mapel` (`id_mapel`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `materi`
+-- Ketidakleluasaan untuk tabel `materi`
 --
 ALTER TABLE `materi`
   ADD CONSTRAINT `fk_materi_kelasonline` FOREIGN KEY (`id_kelasonline`) REFERENCES `kelasonline` (`id_kelasonline`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pesertakelasonline`
+-- Ketidakleluasaan untuk tabel `pesertakelasonline`
 --
 ALTER TABLE `pesertakelasonline`
   ADD CONSTRAINT `fk_pesertakelasonline_id_siswa` FOREIGN KEY (`id_siswa`) REFERENCES `siswa` (`id_siswa`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_pesertakelasonline_kelasonline` FOREIGN KEY (`id_kelasonline`) REFERENCES `kelasonline` (`id_kelasonline`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `presensi`
+-- Ketidakleluasaan untuk tabel `presensi`
 --
 ALTER TABLE `presensi`
   ADD CONSTRAINT `fk_presensi_kelasonline` FOREIGN KEY (`id_kelasonline`) REFERENCES `kelasonline` (`id_kelasonline`) ON DELETE CASCADE ON UPDATE CASCADE,
